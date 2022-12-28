@@ -13,8 +13,14 @@ export function NoteIndex() {
         noteService.getNotes().then(setNotes)
     }, [])
 
+    function onAddNote(note) {
+        noteService.save(note).then(note => {
+            setNotes(prevNotes => [note, ...prevNotes])
+        })
+    }
+
     return <section className="note-index">
-        <NoteAdd />
+        <NoteAdd onAddNote={onAddNote} />
         <NoteList notes={notes} />
     </section>
 }
