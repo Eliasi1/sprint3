@@ -29,3 +29,17 @@
 .fa-solid.trash-can::before {
     content: "\f2ed";
 }
+
+.fa-solid.star::before {
+    content: "\f005";
+}
+
+/* Font Awesome - regular */
+.fa-regular::before {
+    font-family: fa-regular;
+}
+
+.fa-regular.star::before {
+    content: "\f005";
+}
+

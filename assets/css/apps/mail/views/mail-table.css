@@ -9,3 +9,10 @@
 .mail-preview.subject{
     grid-column: 2;
 }
+.mail-preview.time-stamp{
+    grid-column: 3;
+}
+.mail-preview.mail-actions{
+    grid-column: 1;
+}
+

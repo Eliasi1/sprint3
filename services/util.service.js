@@ -7,7 +7,8 @@ export const utilService = {
     getDayName,
     getMonthName,
     saveToStorage,
-    loadFromStorage
+    loadFromStorage,
+    getFullDate
 }
 
 function makeId(length = 6) {
@@ -70,4 +71,16 @@ function saveToStorage(key, val) {
 function loadFromStorage(key) {
     var val = localStorage.getItem(key)
     return JSON.parse(val)
+}
+
+function getFullDate(miliseconds){
+
+var today = new Date(miliseconds);
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = mm + '/' + dd + '/' + yyyy;
+
+return today
 }
