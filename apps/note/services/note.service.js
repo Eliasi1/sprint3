@@ -49,31 +49,56 @@ function _createDemoNotes() {
                 type: "note-txt",
                 isPinned: true,
                 info: {
-                    txt: "Fullstack Me Baby!"
+                    txt: "Fullstack Me Baby!",
+                    title: 'Some title'
                 }
             },
             {
                 id: "n102",
-                type: "note-img",
+                type: "note-txt",
+                isPinned: true,
                 info: {
-                    url: "http://some-img/me",
-                    title: "Bobi and Me"
-                },
-                style: {
-                    backgroundColor: "#00d"
+                    txt: "Fullstack Me Baby!",
+                    title: 'Some title'
                 }
             },
             {
                 id: "n103",
-                type: "note-todos",
+                type: "note-txt",
+                isPinned: true,
                 info: {
-                    label: "Get my stuff together",
-                    todos: [
-                        { txt: "Driving liscence", doneAt: null },
-                        { txt: "Coding power", doneAt: 187111111 }
-                    ]
+                    txt: "Fullstack Me Baby!",
+                    title: 'Some title'
                 }
-            }
+            },
+            {
+                id: "n104",
+                type: "note-txt",
+                isPinned: true,
+                info: {
+                    txt: "Fullstack Me Baby!",
+                    title: 'Some title'
+                }
+            },
+            {
+                id: "n105",
+                type: "note-txt",
+                isPinned: true,
+                info: {
+                    txt: "Fullstack Me Baby!",
+                    title: 'Some title'
+                }
+            },
+            {
+                id: "n106",
+                type: "note-txt",
+                isPinned: true,
+                info: {
+                    txt: "Fullstack Me Baby!",
+                    title: 'Some title'
+                }
+            },
+
         ]
     }
     utilService.saveToStorage(STORAGE_KEY, notes)
