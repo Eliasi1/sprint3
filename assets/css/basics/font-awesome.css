@@ -1,3 +1,5 @@
+/* Font awesome - brands */
+
 .fa-brands::before {
     font-family: fa-brands;
 }
@@ -16,4 +18,14 @@
 
 .fa-brands.dribbble::before {
     content: "\f17d";
+}
+
+/* Font awesome - solid */
+
+.fa-solid::before {
+    font-family: fa-solid;
+}
+
+.fa-solid.trash-can::before {
+    content: "\f2ed";
 }

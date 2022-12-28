@@ -9,15 +9,56 @@
 }
 
 section.notes-container .note-card {
-    padding: 1em;
+    padding: 1em 1em 3em 1em;
     min-height: 104px;
     width: 240px;
     max-height: min-content;
     font-family: Lato;
     break-inside: avoid-column;
     margin-block-end: 16px;
-    display: inline-block;
     text-align: initial;
     border-radius: 1em;
     border: 1px solid var(--notes-border-clr);
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    word-wrap: break-word;
+    cursor: pointer;
+}
+
+.note-card p {
+    font-family: Lato-light;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.note-buttons {
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0;
+    position: absolute;
+    bottom: 0.6em;
+    left: 0;
+    width: 100%;
+    padding: 0 1em;
+    pointer-events: none;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.note-buttons button {
+    font-size: 1.25rem;
+    background: none;
+    border: none;
+    color: rgb(122, 122, 122);
+    transition: color 0.15s ease-in-out;
+}
+
+.note-buttons button:hover {
+    color: black;
+}
+
+.note-card:hover .note-buttons {
+    pointer-events: all;
+    opacity: 1;
 }

@@ -2,7 +2,7 @@ const { useState, useEffect } = React
 
 import { noteService } from "../services/note.service.js"
 
-export function NoteAdd({onAddNote}) {
+export function NoteAdd({ onAddNote }) {
 
     const [isAddingNote, setIsAddingNote] = useState(false)
     const [note, setNote] = useState(noteService.getEmptyNote())
@@ -18,9 +18,10 @@ export function NoteAdd({onAddNote}) {
     }, [])
 
     function handleBodyClick(ev) {
-        if (ev.target.classList.contains('notes-container') || ev.target === document.body) {
-            setIsAddingNote(false)
-        }
+        const elClassList = ev.target.classList
+        if (ev.target.name) return
+        setIsAddingNote(false)
+
     }
 
     function onOpenForm(ev) {
@@ -33,7 +34,7 @@ export function NoteAdd({onAddNote}) {
         setNote((prevNote) => ({ ...prevNote, info: { ...prevNote.info, [field]: value } }))
     }
 
-    function handleAddingNote(){
+    function handleAddingNote() {
         onAddNote(note)
         setNote(noteService.getEmptyNote())
     }
