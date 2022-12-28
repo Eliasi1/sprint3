@@ -7,8 +7,6 @@ export function NoteAdd({ onAddNote }) {
     const [isAddingNote, setIsAddingNote] = useState(false)
     const [note, setNote] = useState(noteService.getEmptyNote())
 
-    console.log(note)
-
     useEffect(() => {
         document.body.addEventListener('click', handleBodyClick)
 

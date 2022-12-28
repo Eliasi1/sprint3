@@ -1,5 +1,11 @@
 export function NotePreview({ note, onRemoveNote, onOpenModal }) {
-    return <article onClick={() => onOpenModal(note)} className="note-card">
+    function handleModalOpening(ev){
+        if(ev.target.parentElement.classList.contains('note-buttons')) return
+        onOpenModal(note)
+    }
+
+
+    return <article onClick={handleModalOpening} className="note-card">
         <h3>{note.info.title}</h3>
         <p>{note.info.txt || 'Empty note'}</p>
         <section className="note-buttons">
