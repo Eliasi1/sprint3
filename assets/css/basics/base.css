@@ -5,6 +5,7 @@
 body {
     margin: 0;
     font-family: Lato;
+    min-height: 100vh;
 }
 
 h1,

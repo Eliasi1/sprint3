@@ -3,9 +3,9 @@
     padding: 0;
     margin: 0;
     margin: 0 auto;
-    column-count: auto;
-    column-width: 240px;
+    columns: 240px auto;
     column-gap: 16px;
+    text-align: center;
 }
 
 section.notes-container .note-card {
@@ -13,8 +13,11 @@ section.notes-container .note-card {
     min-height: 104px;
     width: 240px;
     max-height: min-content;
-    background-color: aquamarine;
     font-family: Lato;
     break-inside: avoid-column;
     margin-block-end: 16px;
+    display: inline-block;
+    text-align: initial;
+    border-radius: 1em;
+    border: 1px solid var(--notes-border-clr);
 }
