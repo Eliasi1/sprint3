@@ -69,6 +69,10 @@
     gap: 10px;
 }
 
+.mail-main .app-nav a.active{
+  background: #ff003b;
+}
+
 /* mail-nav-btn */
 .app-btn {
     position: fixed;
@@ -76,9 +80,9 @@
     left: 5%;
     grid-column: 1;
     grid-row:1;
-    /* transform: translate(-50%, -50%); */
   }
   
+
   .app-nav a{
     display: block;
     width: 200px;
