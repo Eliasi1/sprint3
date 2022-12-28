@@ -13,7 +13,9 @@ export function NoteAdd() {
     }, [])
 
     function handleBodyClick(ev) {
-        setIsAddingNote(false)
+        if(ev.target.classList.contains('notes-container') || ev.target === document.body) {
+            setIsAddingNote(false)
+        }
     }
 
     function onOpenForm(ev) {
