@@ -3,21 +3,23 @@
 @import './setup/variables.css';
 @import './setup/fonts.css';
 
-/* Basics */
+/*~~~~~ Basics ~~~~~*/
 
 @import './basics/base.css';
 @import './basics/helpers.css';
 @import './basics/layout.css';
 @import './basics/font-awesome.css';
 
-/* Views */
+/*~~~~~~ Views ~~~~~~*/
 @import './views/home.css';
-
+/* notes */ 
 @import './apps/note/views/note-index.css';
+/* mail */
+@import './apps/mail/views/mail-index.css';
 
 /* @import './apps/mail/views/mail-app.css'; */
 
-/* Cmps */
+/*~~~~ Cmps ~~~~~*/
 
 @import './cmps/user-msg.css';
 @import './cmps/app-header.css';
