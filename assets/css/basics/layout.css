@@ -1,0 +1,5 @@
+.main-layout>*:not(.full) {
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+}
