@@ -3,9 +3,9 @@ const { Link, NavLink } = ReactRouterDOM
 export function AppHeader() {
 
     return <header className="app-header full main-layout">
-        <div>
+        <div className="flex space-between align-center">
             <Link to="/">
-                <h3>LOGO!</h3>
+                <div className="brand"><h3>Appsus</h3></div>
             </Link>
             <nav>
                 <NavLink to="/">Home</NavLink>
