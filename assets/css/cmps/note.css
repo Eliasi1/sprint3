@@ -2,20 +2,19 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 240px);
-    grid-template-rows: repeat(auto-fill, minmax(104px, 1fr));
-    grid-auto-flow: dense;
-    justify-content: center;
-    gap: 0.5em;
     margin: 0 auto;
+    column-count: auto;
+    column-width: 240px;
+    column-gap: 16px;
 }
 
 section.notes-container .note-card {
     padding: 1em;
     min-height: 104px;
-    /* width: 240px; */
+    width: 240px;
     max-height: min-content;
     background-color: aquamarine;
     font-family: Lato;
+    break-inside: avoid-column;
+    margin-block-end: 16px;
 }

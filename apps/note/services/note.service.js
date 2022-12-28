@@ -35,51 +35,7 @@ const notes = [
     },
     {
         id: "n102",
-        type: "note-imgnote-imgnotegnote-imgnote-note-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-img",
-        info: {
-            url: "http://some-img/me",
-            title: "Bobi and Me"
-        },
-        style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {
-        id: "n102",
-        type: "note-img",
-        info: {
-            url: "http://some-img/me",
-            title: "Bobi and Me"
-        },
-        style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {
-        id: "n102",
-        type: "note-img",
-        info: {
-            url: "http://some-img/me",
-            title: "Bobi and Me"
-        },
-        style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {
-        id: "n102",
-        type: "note-img",
-        info: {
-            url: "http://some-img/me",
-            title: "Bobi and Me"
-        },
-        style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {
-        id: "n102",
-        type: "note-img",
+        type: "note-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-img",
         info: {
             url: "http://some-img/me",
             title: "Bobi and Me"
