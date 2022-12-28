@@ -20,11 +20,7 @@ export function App() {
             </Routes>
 
             <Routes>
-                <Route path="/mail" element={<MailIndex />} />
-                <Route path="/mail/inbox" element={<MailIndex />} />
-                <Route path="/mail/sent" element={<MailIndex />} />
-                <Route path="/mail/starred" element={<MailIndex />} />
-                <Route path="/mail/draft" element={<MailIndex />} />
+                <Route path="/mail/:filterBy" element={<MailIndex/>} />
             </Routes>
 
         </section>

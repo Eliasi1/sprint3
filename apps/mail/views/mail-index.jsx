@@ -1,5 +1,7 @@
 const { Link, NavLink } = ReactRouterDOM
 
+import { MailList } from "../cmps/mail-list.jsx"
+
 export function MailIndex() {
     function onCompose() {
         console.log("compose!")
@@ -12,6 +14,9 @@ export function MailIndex() {
             <NavLink to="/mail/sent"><span>Sent</span></NavLink>
             <NavLink to="/mail/starred"><span>Starred</span></NavLink>
             <NavLink to="/mail/draft"><span>Draft</span></NavLink>
+        </div>
+            <MailList/>
+        <div>
 
         </div>
 

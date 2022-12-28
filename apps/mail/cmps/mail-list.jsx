@@ -2,16 +2,26 @@ import {mailService} from '../services/mail.service.js'
 import {MailPreview} from '../cmps/email-preview.jsx'
 
 const {useState, useEffect} = React
+const { useParams } = ReactRouterDOM
 
-export function MailList() {
-const [mails,getMailList] = useState(mailService.getMail())
+
+export function MailList({type}) {
+
+const [mails,getMailList] = useState([])
+const params = useParams()
+
+console.log(params.filterBy)
+
+useEffect (()=>{
+mailService.getMail(params.filterBy).then((mails)=> getMailList(mails))
+},[params.filterBy])
 
     
 
 return <ul className='mails-list'>
     {
     mails.map((mail) => {
-        return <MailPreview mail={mail}/>
+        return <MailPreview key={mail.id} mail={mail}/>
 
     })
     }
