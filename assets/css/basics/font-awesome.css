@@ -1,0 +1,19 @@
+.fa-brands::before {
+    font-family: fa-brands;
+}
+
+.fa-brands.facebook::before {
+    content: "\f39e";
+}
+
+.fa-brands.twitter::before {
+    content: "\f099";
+}
+
+.fa-brands.behance::before {
+    content: "\f1b4";
+}
+
+.fa-brands.dribbble::before {
+    content: "\f17d";
+}
