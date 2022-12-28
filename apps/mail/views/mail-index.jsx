@@ -30,6 +30,9 @@ export function MailIndex() {
         mailService.removeMail(id).then(()=>{
           const newMails =  mails.filter((mail) => mail.id != id)
           setMails(newMails)
+
+          
+          
         })
     }
 
