@@ -21,3 +21,9 @@ section.notes-container .note-card {
     border-radius: 1em;
     border: 1px solid var(--notes-border-clr);
 }
+
+.note-card p {
+    font-family: Lato-light;
+    font-weight: 700;
+    font-size: 1.2rem;
+}

@@ -17,3 +17,8 @@
     font-family: Lato;
     src: url("/assets/fonts/Lato-Black.ttf");
 }
+
+@font-face {
+    font-family: Lato-light;
+    src: url("/assets/fonts/Lato-Light.ttf");
+}
