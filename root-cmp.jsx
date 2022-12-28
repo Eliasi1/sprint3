@@ -17,11 +17,9 @@ export function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/note" element={<NoteIndex />} />
-            </Routes>
-
-            <Routes>
                 <Route path="/mail/:filterBy" element={<MailIndex/>} />
             </Routes>
+
 
         </section>
     </Router>

@@ -18,14 +18,16 @@ mailService.getMail(params.filterBy).then((mails)=> getMailList(mails))
 
     
 
-return <ul className='mails-list'>
+return <section className='mail-table'>
+    <ul className='mails-list'>
     {
     mails.map((mail) => {
         return <MailPreview key={mail.id} mail={mail}/>
 
     })
     }
-</ul> 
+</ul>
+</section>
 
 
 }

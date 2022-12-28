@@ -14,7 +14,7 @@
 /* notes */ 
 @import './apps/note/views/note-index.css';
 /* mail */
-@import './apps/mail/views/mail-index.css';
+@import './apps/mail/views/mail-table.css';
 @import './apps/mail/views/nav.css';
 
 /* @import './apps/mail/views/mail-app.css'; */
