@@ -12,3 +12,8 @@
     font-family: fa-solid;
     src: url("/assets/fonts/font-awesome/fa-solid-900.ttf");
 }
+
+@font-face {
+    font-family: Lato;
+    src: url("/assets/fonts/Lato-Black.ttf");
+}
