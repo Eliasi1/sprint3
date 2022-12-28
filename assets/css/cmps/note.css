@@ -1,0 +1,21 @@
+.notes-container {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 240px);
+    grid-template-rows: repeat(auto-fill, minmax(104px, 1fr));
+    grid-auto-flow: dense;
+    justify-content: center;
+    gap: 0.5em;
+    margin: 0 auto;
+}
+
+.note-card {
+    padding: 1em;
+    min-height: 104px;
+    /* width: 240px; */
+    max-height: min-content;
+    background-color: aquamarine;
+    
+}
