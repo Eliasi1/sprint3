@@ -19,8 +19,15 @@ export function NoteIndex() {
         })
     }
 
+    function onRemoveNote(noteId) {
+        noteService.remove(noteId).then(() => {
+            const updatedNotes = notes.filter(note => note.id !== noteId)
+            setNotes(updatedNotes)
+        })
+    }
+
     return <section className="note-index">
         <NoteAdd onAddNote={onAddNote} />
-        <NoteList notes={notes} />
+        <NoteList onRemoveNote={onRemoveNote} notes={notes} />
     </section>
 }

@@ -5,7 +5,8 @@ import { utilService } from "../../../services/util.service.js"
 export const noteService = {
     getNotes,
     getEmptyNote,
-    save
+    save,
+    remove
 }
 
 const STORAGE_KEY = 'notesDB'
@@ -16,12 +17,16 @@ function getNotes() {
     return storageService.query(STORAGE_KEY)
 }
 
-function save(note){
-    if(note.id) {
+function save(note) {
+    if (note.id) {
         return storageService.put(STORAGE_KEY, note)
     } else {
         return storageService.post(STORAGE_KEY, note)
     }
+}
+
+function remove(noteId) {
+    return storageService.remove(STORAGE_KEY, noteId)
 }
 
 function getEmptyNote() {
