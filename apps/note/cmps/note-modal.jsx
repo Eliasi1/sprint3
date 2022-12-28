@@ -7,8 +7,6 @@ export function NoteModal({ note, onCloseModal, onSaveNote }) {
         setCurrNote(note)
     }, [])
 
-    console.log(currNote)
-
     function handleInput({ target }) {
         let { value, name: field } = target
         setCurrNote((prevNote) => ({ ...prevNote, info: { ...prevNote.info, [field]: value } }))
