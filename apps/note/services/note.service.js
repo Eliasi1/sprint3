@@ -23,61 +23,6 @@ const notes = [
         }
     },
     {
-        id: "n102",
-        type: "note-img",
-        info: {
-            url: "http://some-img/me",
-            title: "Bobi and Me"
-        },
-        style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {
-        id: "n102",
-        type: "note-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-imgnote-img",
-        info: {
-            url: "http://some-img/me",
-            title: "Bobi and Me"
-        },
-        style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {
-        id: "n102",
-        type: "note-img",
-        info: {
-            url: "http://some-img/me",
-            title: "Bobi and Me"
-        },
-        style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {
-        id: "n102",
-        type: "note-img",
-        info: {
-            url: "http://some-img/me",
-            title: "Bobi and Me"
-        },
-        style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {
-        id: "n102",
-        type: "note-img",
-        info: {
-            url: "http://some-img/me",
-            title: "Bobi and Me"
-        },
-        style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {
         id: "n103",
         type: "note-todos",
         info: {
