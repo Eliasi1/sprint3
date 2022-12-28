@@ -6,6 +6,7 @@ const { useParams } = ReactRouterDOM
 
 import { MailList } from "../cmps/mail-list.jsx"
 import { mailService } from "../services/mail.service.js"
+import {ComposeEmail} from "../cmps/compose-email.jsx"
 
 export function MailIndex() {
 
@@ -23,7 +24,11 @@ export function MailIndex() {
     }
 
     function onStarMail(id){
-        console.log("staring", id)
+        mailService.toggleStarMail(id).then(() =>{
+            const mailIdx = mails.findIndex((mail) => mail.id === id)
+            mails[mailIdx].isStarred = !mails[mailIdx].isStarred
+            setMails([...mails])
+        })
     }
 
     function onRemoveMail(id){
@@ -45,6 +50,7 @@ export function MailIndex() {
             <NavLink to="/mail/draft"><span>Draft</span></NavLink>
         </div>
             <MailList onStarMail={onStarMail} onRemoveMail={onRemoveMail} mails={mails}/>
+            <ComposeEmail/>
         <div>
 
         </div>

@@ -1,0 +1,9 @@
+.compose-email {
+    display: grid; 
+    position: fixed;
+    width: 50vw;
+    height: 30vh;
+    right: 5%;
+    bottom: 5%;
+}
+
