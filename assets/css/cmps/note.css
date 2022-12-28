@@ -16,14 +16,15 @@ section.notes-container .note-card {
     font-family: Lato;
     break-inside: avoid-column;
     margin-block-end: 16px;
-    display: inline-block;
     text-align: initial;
     border-radius: 1em;
     border: 1px solid var(--notes-border-clr);
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+    word-wrap: break-word;
+    cursor: pointer;
 }
 
 .note-card p {
