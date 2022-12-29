@@ -4,23 +4,33 @@ import { utilService } from "../../../services/util.service.js"
 export const mailService = {
     getMail,
     saveMail,
+    saveDraft,
+    sendMail,
     removeMail,
     toggleStarMail,
     getEmptyMail
 }
 
-const STORAGE_KEY = 'mailsDB'
+const MAILS_STORAGE_KEY = 'mailsDB'
+const DRAFT_STORAGE_KEY = 'draftsDB'
 _createDemoMails()
+_createDemoDrafts()
 
 const loggedinUser = { email: 'momo@momo.com', fullname: 'Mahatma Appsus' }
 
 
-const drafts = []
 
+function saveDraft(mail){
+    if (mail.id) {
+        return storageService.put(DRAFT_STORAGE_KEY, mail)
+    } else {
+        return storageService.post(DRAFT_STORAGE_KEY, mail)
+    }
+}
 
 
 function getMail(type = 'inbox') {
-    return storageService.query(STORAGE_KEY).then((mails) => {
+    return storageService.query(MAILS_STORAGE_KEY).then((mails) => {
         switch (type) {
             case 'inbox':
                 return Promise.resolve(mails.filter((mail) => mail.to === loggedinUser.email))
@@ -35,7 +45,7 @@ function getMail(type = 'inbox') {
 }
 
 function _createDemoMails() {
-    let mails = utilService.loadFromStorage(STORAGE_KEY)
+    let mails = utilService.loadFromStorage(MAILS_STORAGE_KEY)
     if (!mails || !mails.length) {
         const mails = [
             { id: 'e101', subject: 'Miss you!', body: 'Would love to catch up sometimes', isRead: false, sentAt: 1551133930594, to: 'momo@momo.com', isStarred: false },
@@ -46,24 +56,31 @@ function _createDemoMails() {
             { id: 'e106', subject: 'flowers order', body: 'hi, bring me flowers', isRead: true, sentAt: 1553433930594, to: 'elchanan@elchanan.com', isStarred: false },
             { id: 'e107', subject: 'food order', body: 'ok cancel the flowers, i want food.', isRead: true, sentAt: 1553433930594, to: 'elchanan@elchanan.com', isStarred: false },
         ]
-        utilService.saveToStorage(STORAGE_KEY, mails)
+        utilService.saveToStorage(MAILS_STORAGE_KEY, mails)
+    }
+}
+function _createDemoDrafts() {
+    let mails = utilService.loadFromStorage(DRAFT_STORAGE_KEY)
+    if (!mails || !mails.length) {
+        const mails = []
+        utilService.saveToStorage(DRAFT_STORAGE_KEY, mails)
     }
 }
 
 function saveMail(mail) {
     if (mail.id) {
-        return storageService.put(STORAGE_KEY, mail)
+        return storageService.put(MAILS_STORAGE_KEY, mail)
     } else {
-        return storageService.post(STORAGE_KEY, mail)
+        return storageService.post(MAILS_STORAGE_KEY, mail)
     }
 }
 
 function removeMail(mailId) {
-    return storageService.remove(STORAGE_KEY, mailId)
+    return storageService.remove(MAILS_STORAGE_KEY, mailId)
 }
 
 function toggleStarMail(id) {
-    return storageService.query(STORAGE_KEY).then((mails) => {
+    return storageService.query(MAILS_STORAGE_KEY).then((mails) => {
     const mail = mails.find((mail) => mail.id === id)
     mail.isStarred = !mail.isStarred
     return mailService.saveMail(mail)
