@@ -12,7 +12,7 @@ export function ComposeModal(props){
         <textarea name="body" rows={10} id="Body" type="text" placeholder="enter Body" value={props.draftMail.body} onChange={props.onHandleChange}/>
         <div className="flex">
         <button className="send-btn" onClick={props.onSend}>Send</button>
-        <button className="send-btn" onClick={props.onClose}>Close</button>
+        <button className="send-btn" onClick={props.onClose} type='button'>Close</button>
         </div>
     </form>
 </section>
