@@ -16,7 +16,7 @@ export function NoteAdd({ onAddNote }) {
     }, [])
 
     function handleBodyClick(ev) {
-        const elClassList = ev.target.classList
+        if(!ev.target.parentElement) return
         if (ev.target.name || ev.target.parentElement.classList.contains('note-add-buttons')) return
         setIsAddingNote(false)
         setNote(noteService.getEmptyNote())
