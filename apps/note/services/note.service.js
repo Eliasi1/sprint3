@@ -116,7 +116,7 @@ function _createDemoNotes() {
                     title: "A nice image"
                 },
                 style: {
-                    backgroundColor: "lightcyan"
+                    backgroundColor: "#e0ffff"
                 }
             },
             {
@@ -127,7 +127,7 @@ function _createDemoNotes() {
                     title: "VERY MUSIC, much good"
                 },
                 style: {
-                    backgroundColor: "royalblue"
+                    backgroundColor: "#4169e1"
                 }
             },
             {
