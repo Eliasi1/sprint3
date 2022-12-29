@@ -38,7 +38,9 @@ function getEmptyNote() {
         isPinned: false,
         info: {
             title: '',
-            txt: ''
+            txt: '',
+            url: '',
+            todos: []
         }
     }
 }
@@ -50,55 +52,60 @@ function _createDemoNotes() {
             {
                 id: "n101",
                 type: "note-txt",
-                isPinned: true,
+                isPinned: false,
                 info: {
-                    txt: "Fullstack Me Baby!",
-                    title: 'Some title'
+                    txt: "Don't forget to give Spin a snack",
+                    title: "Important"
                 }
             },
             {
                 id: "n102",
                 type: "note-txt",
-                isPinned: true,
+                isPinned: false,
                 info: {
-                    txt: "Fullstack Me Baby!",
-                    title: 'Some title'
+                    txt: "123456grandma",
+                    title: 'My gmail password'
                 }
             },
             {
                 id: "n103",
-                type: "note-txt",
-                isPinned: true,
+                type: "note-video",
+                isPinned: false,
                 info: {
-                    txt: "Fullstack Me Baby!",
-                    title: 'Some title'
+                    title: "BIG SAD ;(",
+                    url: 'https://www.youtube.com/embed/h4VJGNNSQnw'
                 }
             },
             {
                 id: "n104",
-                type: "note-txt",
-                isPinned: true,
+                type: "note-todos",
+                isPinned: false,
                 info: {
-                    txt: "Fullstack Me Baby!",
-                    title: 'Some title'
+                    title: 'Grocery list',
+                    todos: [
+                        { txt: "Chicken", doneAt: null },
+                        { txt: "Vegetables", doneAt: null },
+                        { txt: "Fruits", doneAt: null },
+                        { txt: "Rice", doneAt: null }
+                    ]
                 }
             },
             {
                 id: "n105",
-                type: "note-txt",
-                isPinned: true,
+                type: "note-img",
+                isPinned: false,
                 info: {
-                    txt: "Fullstack Me Baby!",
-                    title: 'Some title'
+                    title: 'Make my own burger',
+                    url: 'https://images.unsplash.com/photo-1672078857105-a1229a7033b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80'
                 }
             },
             {
                 id: "n106",
                 type: "note-txt",
-                isPinned: true,
+                isPinned: false,
                 info: {
-                    txt: "Fullstack Me Baby!",
-                    title: 'Some title'
+                    txt: "Logitech G Pro X Superlight",
+                    title: 'Mouse to buy'
                 }
             },
             {
@@ -106,7 +113,7 @@ function _createDemoNotes() {
                 type: "note-img",
                 info: {
                     url: "https://images.unsplash.com/photo-1672233834592-1d516d1c6265?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1523&q=80",
-                    title: "Bobi and Me"
+                    title: "A nice image"
                 },
                 style: {
                     backgroundColor: "#00d"
@@ -116,8 +123,8 @@ function _createDemoNotes() {
                 id: "n108",
                 type: "note-video",
                 info: {
-                    url: "https://www.youtube.com/embed/h4VJGNNSQnw",
-                    title: "HI VIDEO"
+                    url: "https://www.youtube.com/embed/xuxWlWkxLDQ",
+                    title: "VERY MUSIC, much good"
                 },
                 style: {
                     backgroundColor: "#00d"
@@ -127,10 +134,11 @@ function _createDemoNotes() {
                 id: "n109",
                 type: "note-todos",
                 info: {
-                    title: "Get my stuff together",
+                    title: "TODO LIST",
                     todos: [
-                        { txt: "Driving liscence", doneAt: null },
-                        { txt: "Coding power", doneAt: 187111111 }
+                        { txt: "Study", doneAt: null },
+                        { txt: "Spin walk", doneAt: null },
+                        { txt: "Gym", doneAt: null }
                     ]
                 }
             }
