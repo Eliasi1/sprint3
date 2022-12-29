@@ -13,8 +13,11 @@ const STORAGE_KEY = 'notesDB'
 _createDemoNotes()
 
 
-function getNotes() {
-    return storageService.query(STORAGE_KEY)
+function getNotes(queryStr) {
+    return storageService.query(STORAGE_KEY).then(notes => {
+        const regex = new RegExp(queryStr, 'i')
+        return notes.filter(note => regex.test(note.info.title) || regex.test(note.info.txt))
+    })
 }
 
 function save(note) {
