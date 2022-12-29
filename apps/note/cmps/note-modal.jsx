@@ -7,12 +7,27 @@ export function NoteModal({ note, onCloseModal, onSaveNote }) {
         setCurrNote(note)
     }, [])
 
+    console.log(currNote)
+
     function handleInput({ target }) {
         let { value, name: field } = target
-        setCurrNote((prevNote) => ({ ...prevNote, info: { ...prevNote.info, [field]: value } }))
+        if (field === 'todos') {
+            const todosTxts = value.split(',')
+            // ({ ...prevNote, info: { ...prevNote.info, [field]: [...prevNote.info.todos] } })
+            setCurrNote((prevNote) => {
+                todosTxts.forEach((todoStr, idx) => {
+                    if (prevNote.info.todos[idx]) prevNote.info.todos[idx].txt = todoStr
+                    else prevNote.info.todos.push({ txt: todoStr, doneAt: null })
+
+                })
+                return { ...prevNote, info: { ...prevNote.info, [field]: [...prevNote.info.todos] } }
+            })
+        } else {
+            setCurrNote((prevNote) => ({ ...prevNote, info: { ...prevNote.info, [field]: value } }))
+        }
     }
 
-    function handleSavingNote(){
+    function handleSavingNote() {
         onSaveNote(currNote)
         onCloseModal()
     }
@@ -20,7 +35,9 @@ export function NoteModal({ note, onCloseModal, onSaveNote }) {
     if (!currNote) return
     return <div className="note-modal note-add-section">
         <input onChange={handleInput} value={currNote.info.title} name="title" type="text" placeholder="Title" />
-        <input onChange={handleInput} value={currNote.info.txt} name="txt" type="text" placeholder="Take a note..." />
+        {currNote.info.txt && <input onChange={handleInput} value={currNote.info.txt} name="txt" type="text" placeholder="Note text..." />}
+        {currNote.info.url && <input onChange={handleInput} value={currNote.info.url} name="url" type="text" placeholder="Link..." />}
+        {currNote.info.todos && <input onChange={handleInput} value={currNote.info.todos.map(todo => todo.txt)} name="todos" type="text" placeholder="Todos..." />}
         <div>
             <button onClick={handleSavingNote}>Save</button>
             <button onClick={onCloseModal}>Close</button>

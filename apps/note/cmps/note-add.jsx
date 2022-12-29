@@ -22,30 +22,37 @@ export function NoteAdd({ onAddNote }) {
 
     }
 
-            function onOpenForm(ev) {
-                ev.stopPropagation()
+    function onOpenForm(ev) {
+        ev.stopPropagation()
         setIsAddingNote((prevIsAddingNote => !prevIsAddingNote))
     }
 
-            function handleInput({target}) {
-                let {value, name: field } = target
-        setNote((prevNote) => ({...prevNote, info: {...prevNote.info, [field]: value } }))
+    function handleInput({ target }) {
+        let { value, name: field } = target
+        setNote((prevNote) => ({ ...prevNote, info: { ...prevNote.info, [field]: value } }))
     }
 
-            function handleAddingNote() {
-                onAddNote(note)
+    function handleAddingNote() {
+        onAddNote(note)
         setNote(noteService.getEmptyNote())
     }
 
-            return <section className="note-add">
-                {!isAddingNote && <input onClick={onOpenForm} name="txt" type="text" placeholder="Take a note..." />}
-                {isAddingNote && <section className="note-add-section">
-                    <input onChange={handleInput} value={note.info.title} name="title" type="text" placeholder="Title" />
-                    <input onChange={handleInput} value={note.info.txt} name="txt" type="text" placeholder="Take a note..." />
-                    <div>
-                        <button onClick={handleAddingNote}>Save</button>
-                        <button onClick={onOpenForm}>Close</button>
-                    </div>
-                </section>}
+    return <section className="note-add">
+        {!isAddingNote &&
+            <span>
+                <input onClick={onOpenForm} name="txt" type="text" placeholder="Take a note..." /><button>X</button>
+            </span>
+        }
+        
+        {isAddingNote &&
+            <section className="note-add-section">
+                <input onChange={handleInput} value={note.info.title} name="title" type="text" placeholder="Title" />
+                <input onChange={handleInput} value={note.info.txt} name="txt" type="text" placeholder="Take a note..." />
+                <div>
+                    <button onClick={handleAddingNote}>Save</button>
+                    <button onClick={onOpenForm}>Close</button>
+                </div>
             </section>
+        }
+    </section>
 }
