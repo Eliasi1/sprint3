@@ -40,6 +40,7 @@ export function NoteIndex() {
     }
 
     function onOpenModal(note) {
+        console.log(note)
         setIsModalOpen(true)
         currNoteRef.current = note
     }

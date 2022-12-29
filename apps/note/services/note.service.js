@@ -101,7 +101,39 @@ function _createDemoNotes() {
                     title: 'Some title'
                 }
             },
-
+            {
+                id: "n107",
+                type: "note-img",
+                info: {
+                    url: "https://images.unsplash.com/photo-1672233834592-1d516d1c6265?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1523&q=80",
+                    title: "Bobi and Me"
+                },
+                style: {
+                    backgroundColor: "#00d"
+                }
+            },
+            {
+                id: "n108",
+                type: "note-video",
+                info: {
+                    url: "https://www.youtube.com/embed/h4VJGNNSQnw",
+                    title: "HI VIDEO"
+                },
+                style: {
+                    backgroundColor: "#00d"
+                }
+            },
+            {
+                id: "n109",
+                type: "note-todos",
+                info: {
+                    title: "Get my stuff together",
+                    todos: [
+                        { txt: "Driving liscence", doneAt: null },
+                        { txt: "Coding power", doneAt: 187111111 }
+                    ]
+                }
+            }
         ]
     }
     utilService.saveToStorage(STORAGE_KEY, notes)
