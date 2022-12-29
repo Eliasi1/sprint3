@@ -20,6 +20,10 @@
     content: "\f17d";
 }
 
+.fa-brands.youtube::before {
+    content: "\f167";
+}
+
 /* Font awesome - solid */
 
 .fa-solid::before {
@@ -32,6 +36,14 @@
 
 .fa-solid.star::before {
     content: "\f005";
+}
+
+.fa-solid.image::before {
+    content: "\f03e";
+}
+
+.fa-solid.list::before {
+    content: "\f03a";
 }
 
 /* Font Awesome - regular */

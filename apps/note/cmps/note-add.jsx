@@ -39,11 +39,16 @@ export function NoteAdd({ onAddNote }) {
 
     return <section className="note-add">
         {!isAddingNote &&
-            <span>
-                <input onClick={onOpenForm} name="txt" type="text" placeholder="Take a note..." /><button>X</button>
+            <span className="note-inputs">
+                <input onClick={onOpenForm} name="txt" type="text" placeholder="Take a note..." />
+                <span className="note-add-buttons">
+                    <button className="fa-solid image"></button>
+                    <button className="fa-brands youtube"></button>
+                    <button className="fa-solid list"></button>
+                </span>
             </span>
         }
-        
+
         {isAddingNote &&
             <section className="note-add-section">
                 <input onChange={handleInput} value={note.info.title} name="title" type="text" placeholder="Title" />
