@@ -48,6 +48,7 @@ section.notes-container .note-card:hover {
     padding: 0 1em;
     pointer-events: none;
     transition: opacity 0.15s ease-in-out;
+    gap: 0.5em;
 }
 
 .note-buttons button {
@@ -71,4 +72,17 @@ section.notes-container .note-card:hover {
     font-family: Lato-light;
     font-weight: 700;
     font-size: 1.2rem;
+}
+
+.note-buttons .color-button {
+    position: relative;
+}
+
+.note-buttons .color-button input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
 }

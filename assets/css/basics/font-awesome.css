@@ -46,6 +46,10 @@
     content: "\f03a";
 }
 
+.fa-solid.palette::before {
+    content: "\f53f";
+}
+
 /* Font Awesome - regular */
 .fa-regular::before {
     font-family: fa-regular;

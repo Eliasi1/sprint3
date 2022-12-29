@@ -39,6 +39,6 @@ img {
     object-fit: cover;
 }
 
-button {
+button, input[type="color"] {
     cursor: pointer;
 }
