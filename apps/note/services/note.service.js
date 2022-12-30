@@ -50,16 +50,119 @@ function _createDemoNotes() {
     if (!notes || !notes.length) {
         notes = [
             {
-                id: "n101",
+                type: "note-img",
+                isPinned: false,
+                info: {
+                    title: "Italy",
+                    txt: "",
+                    url: "https://images.unsplash.com/photo-1515859005217-8a1f08870f59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1110&q=80",
+                    todos: []
+                },
+                id: "GV3yb"
+            },
+            {
                 type: "note-txt",
                 isPinned: false,
+                info: {
+                    title: "Holiday",
+                    txt: "Never",
+                    url: "",
+                    todos: []
+                },
+                id: "ZPNK9"
+            },
+            {
+                type: "note-todos",
+                isPinned: false,
+                info: {
+                    title: "Appsus",
+                    txt: "",
+                    url: "",
+                    todos: [
+                        {
+                            txt: "hi",
+                            doneAt: null
+                        },
+                        {
+                            txt: "there",
+                            doneAt: null
+                        },
+                        {
+                            txt: "my",
+                            doneAt: null
+                        },
+                        {
+                            txt: "name",
+                            doneAt: null
+                        },
+                        {
+                            txt: "is",
+                            doneAt: null
+                        },
+                        {
+                            txt: "shay",
+                            doneAt: null
+                        }
+                    ]
+                },
+                id: "AodBx",
+                style: {
+                    backgroundColor: "#720808",
+                    color: "white"
+                }
+            },
+            {
+                type: "note-video",
+                isPinned: true,
+                info: {
+                    title: "Good song",
+                    txt: "",
+                    url: "https://www.youtube.com/embed/FPjJW5iTFN0",
+                    todos: []
+                },
+                id: "kktSm",
+                style: {
+                    backgroundColor: "#212121",
+                    color: "white"
+                }
+            },
+            {
+                type: "note-img",
+                isPinned: false,
+                info: {
+                    title: "Happy new year!",
+                    txt: "",
+                    url: "https://images.unsplash.com/photo-1672339040081-7c139055ada6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+                    todos: []
+                },
+                id: "srb9F"
+            },
+            {
+                type: "note-txt",
+                isPinned: true,
+                info: {
+                    title: "Important",
+                    txt: "REFUEL THE CAR",
+                    url: "",
+                    todos: []
+                },
+                id: "oeMFy",
+                style: {
+                    backgroundColor: "#3e163d",
+                    color: "white"
+                }
+            },
+            {
+                id: "n101",
+                type: "note-txt",
+                isPinned: true,
                 info: {
                     txt: "Don't forget to give Spin a snack",
                     title: "Important"
                 },
                 style: {
                     backgroundColor: "#3E163D",
-                    color: '#ffffff'
+                    color: "#ffffff"
                 }
             },
             {
@@ -68,7 +171,7 @@ function _createDemoNotes() {
                 isPinned: false,
                 info: {
                     txt: "123456grandma",
-                    title: 'My gmail password'
+                    title: "My gmail password"
                 }
             },
             {
@@ -77,7 +180,11 @@ function _createDemoNotes() {
                 isPinned: false,
                 info: {
                     title: "BIG SAD ;(",
-                    url: 'https://www.youtube.com/embed/h4VJGNNSQnw'
+                    url: "https://www.youtube.com/embed/h4VJGNNSQnw"
+                },
+                style: {
+                    backgroundColor: "#4f008f",
+                    color: "white"
                 }
             },
             {
@@ -85,17 +192,29 @@ function _createDemoNotes() {
                 type: "note-todos",
                 isPinned: false,
                 info: {
-                    title: 'Grocery list',
+                    title: "Grocery list",
                     todos: [
-                        { txt: "Chicken", doneAt: null },
-                        { txt: "Vegetables", doneAt: null },
-                        { txt: "Fruits", doneAt: null },
-                        { txt: "Rice", doneAt: null }
+                        {
+                            txt: "Chicken",
+                            doneAt: null
+                        },
+                        {
+                            txt: "Vegetables",
+                            doneAt: null
+                        },
+                        {
+                            txt: "Fruits",
+                            doneAt: null
+                        },
+                        {
+                            txt: "Rice",
+                            doneAt: null
+                        }
                     ]
                 },
                 style: {
                     backgroundColor: "#161F3E",
-                    color: '#ffffff'
+                    color: "#ffffff"
                 }
             },
             {
@@ -103,8 +222,8 @@ function _createDemoNotes() {
                 type: "note-img",
                 isPinned: false,
                 info: {
-                    title: 'Make my own burger',
-                    url: 'https://images.unsplash.com/photo-1672078857105-a1229a7033b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80'
+                    title: "Make my own burger",
+                    url: "https://images.unsplash.com/photo-1672078857105-a1229a7033b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80"
                 }
             },
             {
@@ -113,7 +232,7 @@ function _createDemoNotes() {
                 isPinned: false,
                 info: {
                     txt: "Logitech G Pro X Superlight",
-                    title: 'Mouse to buy'
+                    title: "Mouse to buy"
                 }
             },
             {
@@ -136,7 +255,7 @@ function _createDemoNotes() {
                 },
                 style: {
                     backgroundColor: "#693421",
-                    color: '#ffffff'
+                    color: "#ffffff"
                 }
             },
             {
@@ -145,9 +264,18 @@ function _createDemoNotes() {
                 info: {
                     title: "TODO LIST",
                     todos: [
-                        { txt: "Study", doneAt: 1672412871706 },
-                        { txt: "Spin walk", doneAt: null },
-                        { txt: "Gym", doneAt: null }
+                        {
+                            txt: "Study",
+                            doneAt: 1672412871706
+                        },
+                        {
+                            txt: "Spin walk",
+                            doneAt: null
+                        },
+                        {
+                            txt: "Gym",
+                            doneAt: null
+                        }
                     ]
                 }
             }

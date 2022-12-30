@@ -86,8 +86,6 @@ export function NoteIndex() {
         })
     }
 
-    console.log(notes)
-
     function onToggleTodo(ev, todo, note) {
         ev.stopPropagation()
         if (todo.doneAt) todo.doneAt = null
