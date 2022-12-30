@@ -40,7 +40,7 @@ export function NoteModal({ note, onCloseModal, onSaveNote }) {
         <input onChange={handleInput} value={currNote.info.title} name="title" type="text" placeholder="Title" />
         {currNote.info.txt && <input onChange={handleInput} value={currNote.info.txt} name="txt" type="text" placeholder="Note text..." />}
         {currNote.info.url && <input onChange={handleInput} value={currNote.info.url} name="url" type="text" placeholder="Link..." />}
-        {currNote.info.todos[0] && <input onChange={handleInput} value={currNote.info.todos.map(todo => todo.txt)} name="todos" type="text" placeholder="Todos..." />}
+        {currNote.info.todos && currNote.info.todos[0] && <input onChange={handleInput} value={currNote.info.todos.map(todo => todo.txt)} name="todos" type="text" placeholder="Todos..." />}
         <div>
             <button onClick={handleSavingNote}>Save</button>
             <button onClick={onCloseModal}>Close</button>
