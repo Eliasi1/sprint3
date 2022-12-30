@@ -1,5 +1,7 @@
 const { useState, useEffect } = React
 
+import { utilService } from "../../../services/util.service.js"
+
 export function NoteModal({ note, onCloseModal, onSaveNote }) {
     const [currNote, setCurrNote] = useState(null)
 
@@ -28,6 +30,8 @@ export function NoteModal({ note, onCloseModal, onSaveNote }) {
     }
 
     function handleSavingNote() {
+        const youtubeVidId = utilService.extractYoutubeVidId(currNote.info.url)
+        if (youtubeVidId) currNote.info.url = `https://www.youtube.com/embed/${youtubeVidId}`
         onSaveNote(currNote)
         onCloseModal()
     }
@@ -37,7 +41,7 @@ export function NoteModal({ note, onCloseModal, onSaveNote }) {
         <input onChange={handleInput} value={currNote.info.title} name="title" type="text" placeholder="Title" />
         {currNote.info.txt && <input onChange={handleInput} value={currNote.info.txt} name="txt" type="text" placeholder="Note text..." />}
         {currNote.info.url && <input onChange={handleInput} value={currNote.info.url} name="url" type="text" placeholder="Link..." />}
-        {currNote.info.todos && <input onChange={handleInput} value={currNote.info.todos.map(todo => todo.txt)} name="todos" type="text" placeholder="Todos..." />}
+        {currNote.info.todos[0] && <input onChange={handleInput} value={currNote.info.todos.map(todo => todo.txt)} name="todos" type="text" placeholder="Todos..." />}
         <div>
             <button onClick={handleSavingNote}>Save</button>
             <button onClick={onCloseModal}>Close</button>

@@ -1,5 +1,6 @@
 const { useState, useEffect } = React
 
+import { utilService } from "../../../services/util.service.js"
 import { noteService } from "../services/note.service.js"
 
 export function NoteAdd({ onAddNote }) {
@@ -16,7 +17,7 @@ export function NoteAdd({ onAddNote }) {
     }, [])
 
     function handleBodyClick(ev) {
-        if(!ev.target.parentElement) return
+        if (!ev.target.parentElement) return
         if (ev.target.name || ev.target.parentElement.classList.contains('note-add-buttons')) return
         setIsAddingNote(false)
         setNote(noteService.getEmptyNote())
@@ -48,6 +49,8 @@ export function NoteAdd({ onAddNote }) {
     }
 
     function handleAddingNote() {
+        const youtubeVidId = utilService.extractYoutubeVidId(note.info.url)
+        if (youtubeVidId) note.info.url = `https://www.youtube.com/embed/${youtubeVidId}`
         onAddNote(note)
         setNote(noteService.getEmptyNote())
     }
