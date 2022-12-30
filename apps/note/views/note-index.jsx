@@ -50,14 +50,55 @@ export function NoteIndex() {
         currNoteRef.current = null
     }
 
-    function onSearch(queryStr){
+    function onSearch(queryStr) {
         setQueryStr(queryStr)
     }
 
+    function setNoteStyle(bgColor) {
+        // stole this functionality from google :)
+
+        const c = bgColor.substring(1)  // strip #
+        const rgb = parseInt(c, 16)   // convert rrggbb to decimal
+        const r = (rgb >> 16) & 0xff  // extract red
+        const g = (rgb >> 8) & 0xff  // extract green
+        const b = (rgb >> 0) & 0xff  // extract blue
+
+        const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b // per ITU-R BT.709
+
+        if (luma < 80) {
+            return { backgroundColor: bgColor, color: 'white' }
+        } else {
+            return { backgroundColor: bgColor }
+        }
+    }
+
+    function onChangeColor(note, bgColor) {
+        note.style = setNoteStyle(bgColor)
+        noteService.save(note).then(() => {
+            setNotes(prevNotes => [...prevNotes])
+        })
+    }
+
+    function onPinNote(note) {
+        note.isPinned = !note.isPinned
+        noteService.save(note).then(() => {
+            setNotes(prevNotes => [...prevNotes])
+        })
+    }
+
+    function onToggleTodo(ev, todo, note) {
+        ev.stopPropagation()
+        if (todo.doneAt) todo.doneAt = null
+        else todo.doneAt = Date.now()
+        noteService.save(note).then(() => {
+            setNotes(prevNotes => [...prevNotes])
+        })
+    }
+
     return <section className="note-index">
-        <SearchBar onSearch={onSearch}/>
+        <SearchBar onSearch={onSearch} />
         <NoteAdd onAddNote={onAddNote} />
-        <NoteList onOpenModal={onOpenModal} onRemoveNote={onRemoveNote} notes={notes} />
+        <NoteList onToggleTodo={onToggleTodo} onPinNote={onPinNote} onChangeColor={onChangeColor} onOpenModal={onOpenModal} onRemoveNote={onRemoveNote} notes={notes} />
         {isModalOpen && <NoteModal onSaveNote={onSaveNote} onCloseModal={onCloseModal} note={currNoteRef.current} />}
         {isModalOpen && <div onClick={onCloseModal} className="overlay"></div>}
     </section>

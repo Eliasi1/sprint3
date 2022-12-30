@@ -8,6 +8,12 @@
     padding: 0.8em;
     border-radius: 0.6em;
     border: 2px solid var(--notes-border-clr);
-    width: 300px;
+    width: 100%;
     font-size: 1rem;
+}
+
+@media screen and (min-width: 568px){
+    .search-bar input {
+        width: 500px;
+    }
 }

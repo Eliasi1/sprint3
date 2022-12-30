@@ -8,7 +8,8 @@ export const utilService = {
     getMonthName,
     saveToStorage,
     loadFromStorage,
-    getFullDate
+    getFullDate,
+    extractYoutubeVidId
 }
 
 function makeId(length = 6) {
@@ -73,14 +74,25 @@ function loadFromStorage(key) {
     return JSON.parse(val)
 }
 
-function getFullDate(miliseconds){
+function getFullDate(miliseconds) {
 
-var today = new Date(miliseconds);
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
+    var today = new Date(miliseconds);
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
 
-today = mm + '/' + dd + '/' + yyyy;
+    today = mm + '/' + dd + '/' + yyyy;
 
-return today
+    return today
+}
+
+function extractYoutubeVidId(url) {
+    if(!url) return null
+    const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    if (match && match[2].length == 11) {
+        return match[2];
+    } else {
+        return null
+    }
 }

@@ -8,6 +8,11 @@ body {
     min-height: 100vh;
 }
 
+ul, ol {
+    padding-inline-start: 1.12em;
+    margin: 0;
+}
+
 h1,
 h2,
 h3,
@@ -34,6 +39,10 @@ img {
     object-fit: cover;
 }
 
-button {
+button, input[type="color"] {
     cursor: pointer;
+}
+
+iframe {
+    aspect-ratio: 4/3;
 }
