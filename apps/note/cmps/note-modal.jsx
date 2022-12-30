@@ -6,7 +6,7 @@ export function NoteModal({ note, onCloseModal, onSaveNote }) {
     const [currNote, setCurrNote] = useState(null)
 
     useEffect(() => {
-        setCurrNote(note)
+        setCurrNote({...note})
     }, [])
 
     console.log(currNote)

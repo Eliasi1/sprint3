@@ -78,6 +78,8 @@
     border: none;
     color: rgb(122, 122, 122);
     transition: color 0.15s ease-in-out;
+    width: 32px;
+    height: 22px;
 }
 
 .note-add .note-add-buttons button:hover {
