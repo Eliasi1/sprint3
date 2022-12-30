@@ -18,7 +18,6 @@
 section.notes-container .note-card {
     padding: 1em 1em 3em 1em;
     min-height: 104px;
-    width: 240px;
     max-height: min-content;
     font-family: Lato;
     break-inside: avoid-column;
@@ -32,6 +31,7 @@ section.notes-container .note-card {
     position: relative;
     word-wrap: break-word;
     cursor: pointer;
+    width: 100%;
 }
 
 section.notes-container .note-card:hover {
@@ -109,4 +109,11 @@ section.notes-container .note-card:hover {
     width: 100%;
     height: 100%;
     opacity: 0;
+}
+
+@media screen and (min-width: 568px){
+    .note-modal {
+        width: 500px;
+        height: initial;
+    }
 }
