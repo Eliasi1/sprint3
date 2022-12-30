@@ -54,6 +54,10 @@
     content: "\f08d";
 }
 
+.fa-solid.envelope::before {
+    content: "\f658";
+}
+
 /* Font Awesome - regular */
 .fa-regular::before {
     font-family: fa-regular;
