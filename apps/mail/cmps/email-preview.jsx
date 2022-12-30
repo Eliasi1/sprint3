@@ -6,7 +6,6 @@ const {Fragment} = React
 
 export function MailPreview ({mail, onStarMail, onRemoveMail}){
 
-    
     return <Fragment>
     <div className="mail-preview mail-actions">
     <button onClick={() => onRemoveMail(mail.id)} className="fa-solid trash-can"></button>

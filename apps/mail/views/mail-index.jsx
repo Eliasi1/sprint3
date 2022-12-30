@@ -16,7 +16,8 @@ export function MailIndex() {
     const [mails, setMails] = useState([])
     const [onModal, setOnModal] = useState(false)
     const params = useParams()
-    const [draftMail, setMail] = useState(mailService.getEmptyMail())
+    const [draftMail, setDraft] = useState({})
+    const debounce = useRef(null)
 
 
 
@@ -24,10 +25,20 @@ export function MailIndex() {
         mailService.getMails(params.filterBy).then((mails) => setMails(mails))
     }, [params.filterBy])
 
+    useEffect(() => {
+        console.log("checking debounce ", debounce.current)
+        if (debounce.current) return
+        console.log('saving draft email..')
+        debounce.current = true
+        mailService.saveDraft(draftMail).then(draftMail=> {console.log("saved");console.log(draftMail)})
+        setTimeout(()=> debounce.current=false,5000)
+    }, [draftMail])
+
     function onCompose() {
         console.log("compose!")
         setOnModal(true)
-        const mail = mailService.createDraft()
+        const newDraft = mailService.createDraft().then((newDraft) => console.log(newDraft))
+        // setDraft(mailService.createDraft())
     }
 
     function onStarMail(id) {
@@ -52,18 +63,18 @@ export function MailIndex() {
 
     function onHandleChange({ target }) {
         const { value, name: field } = target
-        setMail((previousMail) => {
+        setDraft((previousMail) => {
             console.log(previousMail)
             return { ...previousMail, [field]: value }
         })
     }
 
-    function onSend(){
+    function onSend() {
         console.log("sending!")
     }
 
-    function onCloseModal(){
-        setOnModal(true)
+    function onCloseModal() {
+        setOnModal(false)
     }
 
 
@@ -78,7 +89,7 @@ export function MailIndex() {
                 <NavLink to="/mail/draft"><span>Draft</span></NavLink>
             </div>
             <MailList onStarMail={onStarMail} onRemoveMail={onRemoveMail} mails={mails} />
-            {<ComposeModal onHandleChange={onHandleChange} onSubmit={onSubmit} draftMail={draftMail} onModal={onModal} onSend={onSend} onCloseModal={onCloseModal}/>}
+            <ComposeModal onHandleChange={onHandleChange} onSubmit={onSubmit} draftMail={draftMail} onModal={onModal} onSend={onSend} onCloseModal={onCloseModal} />
             <div>
 
             </div>

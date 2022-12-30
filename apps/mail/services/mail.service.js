@@ -3,6 +3,7 @@ import { utilService } from "../../../services/util.service.js"
 
 export const mailService = {
     getMails,
+    getMail,
     saveMail,
     saveDraft,
     sendMail,
@@ -22,9 +23,13 @@ const loggedinUser = { email: 'momo@momo.com', fullname: 'Mahatma Appsus' }
 
 
 function saveDraft(mail) {
+    console.log(mail)
+    console.log(mail.id)
     if (mail.id) {
+        console.log("updating existing ")
         return storageService.put(DRAFT_STORAGE_KEY, mail)
     } else {
+        console.log("creating new ")
         return storageService.post(DRAFT_STORAGE_KEY, mail)
     }
 }
@@ -112,7 +117,7 @@ function toggleStarMail(id) {
         }
 
 function getEmptyMail() {
-            return { subject: '', to: '', body: '', sentAt: '', isRead: false, isStarred: false, sentAt: Date.now() }
+            return { id:'',subject: '', to: '', body: '', sentAt: '', isRead: false, isStarred: false, sentAt: Date.now() }
         }
 
 
