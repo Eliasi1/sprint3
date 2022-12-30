@@ -50,6 +50,10 @@
     content: "\f53f";
 }
 
+.fa-solid.thumbtack::before {
+    content: "\f08d";
+}
+
 /* Font Awesome - regular */
 .fa-regular::before {
     font-family: fa-regular;

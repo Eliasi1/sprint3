@@ -79,10 +79,17 @@ export function NoteIndex() {
         })
     }
 
+    function onPinNote(note){
+        note.isPinned = !note.isPinned
+        noteService.save(note).then(() => {
+            setNotes(prevNotes => [...prevNotes])
+        })
+    }
+
     return <section className="note-index">
         <SearchBar onSearch={onSearch} />
         <NoteAdd onAddNote={onAddNote} />
-        <NoteList onChangeColor={onChangeColor} onOpenModal={onOpenModal} onRemoveNote={onRemoveNote} notes={notes} />
+        <NoteList onPinNote={onPinNote} onChangeColor={onChangeColor} onOpenModal={onOpenModal} onRemoveNote={onRemoveNote} notes={notes} />
         {isModalOpen && <NoteModal onSaveNote={onSaveNote} onCloseModal={onCloseModal} note={currNoteRef.current} />}
         {isModalOpen && <div onClick={onCloseModal} className="overlay"></div>}
     </section>
