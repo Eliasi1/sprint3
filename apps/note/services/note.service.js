@@ -56,6 +56,10 @@ function _createDemoNotes() {
                 info: {
                     txt: "Don't forget to give Spin a snack",
                     title: "Important"
+                },
+                style: {
+                    backgroundColor: "#3E163D",
+                    color: '#ffffff'
                 }
             },
             {
@@ -88,6 +92,10 @@ function _createDemoNotes() {
                         { txt: "Fruits", doneAt: null },
                         { txt: "Rice", doneAt: null }
                     ]
+                },
+                style: {
+                    backgroundColor: "#161F3E",
+                    color: '#ffffff'
                 }
             },
             {
@@ -127,7 +135,8 @@ function _createDemoNotes() {
                     title: "VERY MUSIC, much good"
                 },
                 style: {
-                    backgroundColor: "#4169e1"
+                    backgroundColor: "#693421",
+                    color: '#ffffff'
                 }
             },
             {
@@ -136,7 +145,7 @@ function _createDemoNotes() {
                 info: {
                     title: "TODO LIST",
                     todos: [
-                        { txt: "Study", doneAt: null },
+                        { txt: "Study", doneAt: 1672412871706 },
                         { txt: "Spin walk", doneAt: null },
                         { txt: "Gym", doneAt: null }
                     ]

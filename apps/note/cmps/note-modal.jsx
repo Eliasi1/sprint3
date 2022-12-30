@@ -15,7 +15,6 @@ export function NoteModal({ note, onCloseModal, onSaveNote }) {
         let { value, name: field } = target
         if (field === 'todos') {
             const todosTxts = value.split(',')
-            // ({ ...prevNote, info: { ...prevNote.info, [field]: [...prevNote.info.todos] } })
             setCurrNote((prevNote) => {
                 todosTxts.forEach((todoStr, idx) => {
                     if (prevNote.info.todos[idx]) prevNote.info.todos[idx].txt = todoStr

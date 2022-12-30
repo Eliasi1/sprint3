@@ -2,7 +2,7 @@ const { Fragment } = React
 
 import { NotePreview } from "./note-preview.jsx";
 
-export function NoteList({ notes, onRemoveNote, onOpenModal, onChangeColor, onPinNote }) {
+export function NoteList({ notes, onRemoveNote, onOpenModal, onChangeColor, onPinNote, onToggleTodo }) {
 
     const pinnedNotes = notes.filter(note => note.isPinned)
     notes = notes.filter(note => !note.isPinned)
@@ -12,7 +12,7 @@ export function NoteList({ notes, onRemoveNote, onOpenModal, onChangeColor, onPi
             <Fragment>
                 <h3>Pinned</h3>
                 <section className="pinned-notes">
-                    {pinnedNotes.map(note => <NotePreview onPinNote={onPinNote} onChangeColor={onChangeColor} onOpenModal={onOpenModal} onRemoveNote={onRemoveNote} note={note} key={note.id} />)}
+                    {pinnedNotes.map(note => <NotePreview onToggleTodo={onToggleTodo} onPinNote={onPinNote} onChangeColor={onChangeColor} onOpenModal={onOpenModal} onRemoveNote={onRemoveNote} note={note} key={note.id} />)}
                 </section>
             </Fragment>
 
@@ -21,11 +21,11 @@ export function NoteList({ notes, onRemoveNote, onOpenModal, onChangeColor, onPi
 
         {notes[0] &&
             <Fragment>
-            {pinnedNotes[0] && <h3>Others</h3>}
-            <section className="pinned-notes">
-                {notes.map(note => <NotePreview onPinNote={onPinNote} onChangeColor={onChangeColor} onOpenModal={onOpenModal} onRemoveNote={onRemoveNote} note={note} key={note.id} />)}
-            </section>
-        </Fragment>
+                {pinnedNotes[0] && <h3>Others</h3>}
+                <section className="pinned-notes">
+                    {notes.map(note => <NotePreview onToggleTodo={onToggleTodo} onPinNote={onPinNote} onChangeColor={onChangeColor} onOpenModal={onOpenModal} onRemoveNote={onRemoveNote} note={note} key={note.id} />)}
+                </section>
+            </Fragment>
         }
         {/* {notes.map(note => <NotePreview onPinNote={onPinNote} onChangeColor={onChangeColor} onOpenModal={onOpenModal} onRemoveNote={onRemoveNote} note={note} key={note.id} />)} */}
     </section>

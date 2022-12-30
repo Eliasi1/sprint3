@@ -68,7 +68,7 @@ export function NoteIndex() {
         if (luma < 80) {
             return { backgroundColor: bgColor, color: 'white' }
         } else {
-            return { backgroundColor: bgColor}
+            return { backgroundColor: bgColor }
         }
     }
 
@@ -79,8 +79,19 @@ export function NoteIndex() {
         })
     }
 
-    function onPinNote(note){
+    function onPinNote(note) {
         note.isPinned = !note.isPinned
+        noteService.save(note).then(() => {
+            setNotes(prevNotes => [...prevNotes])
+        })
+    }
+
+    console.log(notes)
+
+    function onToggleTodo(ev, todo, note) {
+        ev.stopPropagation()
+        if (todo.doneAt) todo.doneAt = null
+        else todo.doneAt = Date.now()
         noteService.save(note).then(() => {
             setNotes(prevNotes => [...prevNotes])
         })
@@ -89,7 +100,7 @@ export function NoteIndex() {
     return <section className="note-index">
         <SearchBar onSearch={onSearch} />
         <NoteAdd onAddNote={onAddNote} />
-        <NoteList onPinNote={onPinNote} onChangeColor={onChangeColor} onOpenModal={onOpenModal} onRemoveNote={onRemoveNote} notes={notes} />
+        <NoteList onToggleTodo={onToggleTodo} onPinNote={onPinNote} onChangeColor={onChangeColor} onOpenModal={onOpenModal} onRemoveNote={onRemoveNote} notes={notes} />
         {isModalOpen && <NoteModal onSaveNote={onSaveNote} onCloseModal={onCloseModal} note={currNoteRef.current} />}
         {isModalOpen && <div onClick={onCloseModal} className="overlay"></div>}
     </section>

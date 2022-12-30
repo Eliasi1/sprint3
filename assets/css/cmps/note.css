@@ -96,6 +96,12 @@ section.notes-container .note-card:hover {
     font-family: Lato-light;
     font-weight: 700;
     font-size: 1.2rem;
+    width: fit-content;
+}
+
+.note-card li.todo-done {
+    text-decoration: line-through;
+    font-style: italic;
 }
 
 .note-buttons .color-button {

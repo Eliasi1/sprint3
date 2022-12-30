@@ -1,8 +1,8 @@
-const {useNavigate} = ReactRouterDOM
+const { useNavigate } = ReactRouterDOM
 
 import { DynamicNote } from "./dynamic-note.jsx"
 
-export function NotePreview({ note, onRemoveNote, onOpenModal, onChangeColor, onPinNote }) {
+export function NotePreview({ note, onRemoveNote, onOpenModal, onChangeColor, onPinNote, onToggleTodo }) {
 
     const navigate = useNavigate()
 
@@ -16,14 +16,14 @@ export function NotePreview({ note, onRemoveNote, onOpenModal, onChangeColor, on
         onChangeColor(note, value)
     }
 
-    function onNoteToMail(){
+    function onNoteToMail() {
         const subject = note.info.title
         const body = note.info.txt || note.info.url || note.info.todos.map(todo => todo.txt)
         navigate(`/mail/compose?subject=${subject}&body=${body}`)
     }
 
     return <article onClick={handleModalOpening} style={note.style ? note.style : {}} className="note-card">
-        <DynamicNote note={note} />
+        <DynamicNote onToggleTodo={onToggleTodo} note={note} />
         <section className="note-buttons">
             <button onClick={() => onPinNote(note)} className={"fa-solid thumbtack pin-button " + (note.isPinned ? 'pinned' : '')}></button>
             <button onClick={onNoteToMail} className="fa-solid envelope"></button>
