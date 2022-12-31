@@ -2,7 +2,7 @@ const { Link, NavLink } = ReactRouterDOM
 
 export function AppHeader() {
 
-    function onToggleMenu(){
+    function onToggleMenu() {
         document.body.classList.toggle('menu-open')
     }
 
@@ -12,10 +12,10 @@ export function AppHeader() {
                 <div className="brand"><h3>Appsus</h3></div>
             </Link>
             <nav className="main-nav">
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/about">About</NavLink>
-                <NavLink to="/mail/inbox">Mail</NavLink>
-                <NavLink to="/note">Note</NavLink>
+                <NavLink onClick={onToggleMenu} to="/">Home</NavLink>
+                <NavLink onClick={onToggleMenu} to="/about">About</NavLink>
+                <NavLink onClick={onToggleMenu} to="/mail/inbox">Mail</NavLink>
+                <NavLink onClick={onToggleMenu} to="/note">Note</NavLink>
             </nav>
             <button onClick={onToggleMenu} className="fa-solid bars menu-btn"></button>
         </div>

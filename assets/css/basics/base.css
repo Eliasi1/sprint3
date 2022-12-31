@@ -9,6 +9,10 @@ body {
     background-color: var(--bg-color);
 }
 
+.mail-main, .note-index, .about, .home {
+    padding-block-start: 6em;
+}
+
 ul, ol {
     padding-inline-start: 1.12em;
     margin: 0;
