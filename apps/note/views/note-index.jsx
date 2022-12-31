@@ -28,10 +28,10 @@ export function NoteIndex() {
             showSuccessMsg('Note added')
             setNotes(prevNotes => [note, ...prevNotes])
         })
-        .catch(err => {
-            console.log('Had issues adding note', err)
-            showErrorMsg('Failed to add note')
-        })
+            .catch(err => {
+                console.log('Had issues adding note', err)
+                showErrorMsg('Failed to add note')
+            })
     }
 
     function onRemoveNote(noteId) {
@@ -40,10 +40,10 @@ export function NoteIndex() {
             showSuccessMsg('Note deleted')
             setNotes(updatedNotes)
         })
-        .catch(err => {
-            console.log('Had issues removing note', err)
-            showErrorMsg('Failed to delete note')
-        })
+            .catch(err => {
+                console.log('Had issues removing note', err)
+                showErrorMsg('Failed to delete note')
+            })
     }
 
     function onSaveNote(note) {
@@ -51,10 +51,10 @@ export function NoteIndex() {
             showSuccessMsg('Note saved')
             loadNotes()
         })
-        .catch(err => {
-            console.log('Had issues saving note', err)
-            showErrorMsg('Failed to save note')
-        })
+            .catch(err => {
+                console.log('Had issues saving note', err)
+                showErrorMsg('Failed to save note')
+            })
     }
 
     function onOpenModal(note) {
@@ -100,13 +100,15 @@ export function NoteIndex() {
     function onPinNote(note) {
         note.isPinned = !note.isPinned
         noteService.save(note).then(() => {
-            showSuccessMsg('Note pinned')
+            if (note.isPinned) showSuccessMsg('Note pinned')
+            else showSuccessMsg('Note unpinned')
+
             setNotes(prevNotes => [...prevNotes])
         })
-        .catch(err => {
-            console.log('Had issues pinning note', err)
-            showErrorMsg('Failed to pin note')
-        })
+            .catch(err => {
+                console.log('Had issues pinning note', err)
+                showErrorMsg('Failed to pin note')
+            })
     }
 
     function onToggleTodo(ev, todo, note) {
