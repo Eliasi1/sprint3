@@ -9,6 +9,7 @@ export function Home() {
         <div className="image-container">
             <div title="Go to mails" onClick={() => navigate('/mail/inbox')} className="img"><img src="./assets/img/mail.svg" alt="mail image" /></div>
             <div title="Go to notes" onClick={() => navigate('/note')} className="img"><img src="./assets/img/notes.svg" alt="notes image" /></div>
+            <div title="Go to books" onClick={() => navigate('/book')} className="img"><img src="./assets/img/book.svg" alt="book image" /></div>
         </div>
     </section>
 }

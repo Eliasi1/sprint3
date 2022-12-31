@@ -9,7 +9,8 @@ export const utilService = {
     saveToStorage,
     loadFromStorage,
     getFullDate,
-    extractYoutubeVidId
+    extractYoutubeVidId,
+    getCurrentYear
 }
 
 function makeId(length = 6) {
@@ -110,4 +111,9 @@ function animateCSS(el, animation) {
 
         el.addEventListener('animationend', handleAnimationEnd, { once: true })
     })
+}
+
+function getCurrentYear(){
+    const date = new Date(Date.now())
+    return date.getFullYear()
 }

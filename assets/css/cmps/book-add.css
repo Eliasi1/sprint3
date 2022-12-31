@@ -1,0 +1,25 @@
+.book-add {
+    max-width: 500px;
+}
+
+.book-add li {
+    margin-block-end: 0.5em;
+}
+
+.book-add-btn {
+    font-size: 1.5rem;
+    width: 30px;
+    height: 30px;
+    background-color: gray;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #eee;
+    transition: backgroud-color 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+.book-add-btn:hover {
+    background-color: rgb(65, 65, 65);
+}

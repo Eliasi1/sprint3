@@ -20,6 +20,7 @@ export function AppHeader() {
                 <NavLink onClick={closeMenu} to="/about">About</NavLink>
                 <NavLink onClick={closeMenu} to="/mail/inbox">Mail</NavLink>
                 <NavLink onClick={closeMenu} to="/note">Note</NavLink>
+                <NavLink onClick={closeMenu} to="/book">Book</NavLink>
             </nav>
             <button onClick={onToggleMenu} className="fa-solid bars menu-btn"></button>
         </div>

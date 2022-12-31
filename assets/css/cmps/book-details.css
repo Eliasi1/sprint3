@@ -1,0 +1,41 @@
+.book-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.book-details img {
+    max-width: 300px;
+}
+
+.red {
+    color: brown;
+}
+
+.green {
+    color: green
+}
+
+.book-details button {
+    border: 1px solid var(--header-bg-color);
+    background: none;
+    padding: 0.25em 0.5em;
+    margin-block-end: 1em;
+    font-size: 1rem;
+    color: var(--header-bg-color);
+    border-radius: 1em;
+    transition: color 0.15s ease-in-out;
+}
+
+.book-details button:hover {
+    color: var(--hover-color);
+}
+
+.book-details .prev-next-book {
+    align-self: stretch;
+    margin-block-end: 1em;
+}
+
+.book-details .prev-next-book a:hover {
+    color: var(--hover-color);
+}

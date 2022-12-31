@@ -30,5 +30,11 @@
 @import './cmps/overlay.css';
 @import './cmps/search-bar.css';
 @import './cmps/home.css';
+@import './cmps/book-add.css';
+@import './cmps/book-details.css';
+@import './cmps/book-edit.css';
+@import './cmps/book-filter.css';
+@import './cmps/card.css';
+@import './cmps/review.css';
 
 /* @import './apps/mail/cmps/mail-list.css'; */

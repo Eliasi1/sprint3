@@ -9,7 +9,7 @@ body {
     background-color: var(--bg-color);
 }
 
-.mail-main, .note-index, .about, .home {
+.mail-main, .note-index, .about, .home, .book-index, .book-details, .book-edit {
     padding-block-start: 6em;
 }
 

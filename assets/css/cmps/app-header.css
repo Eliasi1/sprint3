@@ -59,7 +59,7 @@ body.menu-open .main-nav a {
 }
 
 .main-nav a:not(:last-of-type) {
-    margin-inline-end: 1em;
+    margin-inline-end: 1.5em;
 }
 
 .main-nav a:active {
@@ -125,6 +125,6 @@ body.menu-open .app-header .menu-btn::before {
     }
 
     body.menu-open .main-nav a:not(:last-of-type) {
-        margin-inline-end: 1em;
+        margin-inline-end: 1.5em;
     }
 }
