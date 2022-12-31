@@ -1,6 +1,7 @@
 const { Link, NavLink } = ReactRouterDOM
 const { useState, useEffect, useRef } = React
 const { useParams } = ReactRouterDOM
+const {Fragment} = React
 
 
 
@@ -26,8 +27,8 @@ export function MailIndex() {
     }, [params.filterBy])
 
     useEffect(() => {
-        console.log("checking debounce ", debounce.current)
-        if (debounce.current) return
+        // console.log(draftMail.then((draft)=> console.log(draft)))
+        if (debounce.current || !draftMail.id) return
         console.log('saving draft email..')
         debounce.current = true
         mailService.saveDraft(draftMail).then(draftMail=> {console.log("saved");console.log(draftMail)})
@@ -35,9 +36,8 @@ export function MailIndex() {
     }, [draftMail])
 
     function onCompose() {
-        console.log("compose!")
         setOnModal(true)
-        const newDraft = mailService.createDraft().then((newDraft) => console.log(newDraft))
+        const newDraft = mailService.createDraft().then((newDraft) => {console.log("new draft: ");console.log(newDraft);setDraft(newDraft);console.log("saving to drafts..")})
         // setDraft(mailService.createDraft())
     }
 
@@ -49,28 +49,28 @@ export function MailIndex() {
         })
     }
 
-    function onRemoveMail(id) {
-        mailService.removeMail(id).then(() => {
+    function onRemoveMail(id, boxtype='mails') {
+        mailService.removeMail(id,boxtype).then(() => {
             const newMails = mails.filter((mail) => mail.id != id)
             setMails(newMails)
         })
     }
 
-    function onSubmit(ev) {
-        ev.preventDefault()
-        console.log("submit")
-    }
-
     function onHandleChange({ target }) {
         const { value, name: field } = target
         setDraft((previousMail) => {
-            console.log(previousMail)
             return { ...previousMail, [field]: value }
         })
     }
 
-    function onSend() {
-        console.log("sending!")
+    function onSend(draftValues) {
+        const {to,subject,body} = draftValues
+        const sentAt = Date.now()
+        // console.log(to,subject,body,sentAt)
+        setDraft((previousMail) => { return {...previousMail,to,subject,body,sentAt}})
+        mailService.saveDraft(draftMail).then(() => mailService.sendMail(draftMail.id) )
+        onCloseModal()
+
     }
 
     function onCloseModal() {
@@ -79,22 +79,24 @@ export function MailIndex() {
 
 
     return (
+        <Fragment>
+            <SearchBar />
         <section className="mail-main">
             <div className="nav-btn app-nav flex column">
-                <SearchBar />
                 <button onClick={onCompose} className="glow-on-hover" type="button">Compose</button>
                 <NavLink to="/mail/inbox"><span>Inbox</span></NavLink>
                 <NavLink to="/mail/sent"><span>Sent</span></NavLink>
                 <NavLink to="/mail/starred"><span>Starred</span></NavLink>
                 <NavLink to="/mail/draft"><span>Draft</span></NavLink>
             </div>
-            <MailList onStarMail={onStarMail} onRemoveMail={onRemoveMail} mails={mails} />
-            <ComposeModal onHandleChange={onHandleChange} onSubmit={onSubmit} draftMail={draftMail} onModal={onModal} onSend={onSend} onCloseModal={onCloseModal} />
+            <MailList onStarMail={onStarMail} onRemoveMail={onRemoveMail} mails={mails} boxType={params.filterBy === 'draft' ? 'draft':'mail'} />
+            <ComposeModal onHandleChange={onHandleChange} draftMail={draftMail} onModal={onModal} onSend={onSend} onCloseModal={onCloseModal} />
             <div>
 
             </div>
 
         </section>
+        </Fragment>
     )
 }
 

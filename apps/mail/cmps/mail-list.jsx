@@ -3,17 +3,13 @@ import { MailPreview } from '../cmps/email-preview.jsx'
 
 
 
-export function MailList({onStarMail, onRemoveMail, mails}) {
-
-
-
-
+export function MailList({onStarMail, onRemoveMail, mails, boxType}) {
 
     return <section className='mail-table'>
         <ul className='mails-list'>
             {
                 mails.map((mail) => {
-                    return <MailPreview key={mail.id} mail={mail} onStarMail={onStarMail} onRemoveMail={onRemoveMail} />
+                    return <MailPreview key={mail.id} mail={mail} onStarMail={onStarMail} onRemoveMail={onRemoveMail} boxType={boxType} />
                 })
             }
         </ul>
