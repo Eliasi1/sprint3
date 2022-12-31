@@ -63,23 +63,24 @@ function getMail(id) {
 
 }
 
-function getMails(type = 'inbox') {
-    switch (type) {
+function getMails(filterBy) {
+    filterBy.queryStr = filterBy.queryStr.toLowerCase()
+    switch (filterBy.boxType) {
         case 'inbox':
             return storageService.query(MAILS_STORAGE_KEY).then((mails) => {
-                return Promise.resolve(mails.filter((mail) => mail.to === loggedinUser.email))
+                return Promise.resolve(mails.filter((mail) => mail.to === loggedinUser.email && mail.subject.toLowerCase().includes(filterBy.queryStr)))
             })
         case 'sent':
             return storageService.query(MAILS_STORAGE_KEY).then((mails) => {
-                return Promise.resolve(mails.filter((mail) => mail.to !== loggedinUser.email))
+                return Promise.resolve(mails.filter((mail) => mail.to !== loggedinUser.email && mail.subject.toLowerCase().includes(filterBy.queryStr)))
             })
         case 'starred':
             return storageService.query(MAILS_STORAGE_KEY).then((mails) => {
-                return Promise.resolve(mails.filter((mail) => mail.isStarred === true))
+                return Promise.resolve(mails.filter((mail) => mail.isStarred === true && mail.subject.toLowerCase().includes(filterBy.queryStr)))
             })
         case 'draft':
             return storageService.query(DRAFT_STORAGE_KEY).then((mails) => {
-                return Promise.resolve(mails)
+                return Promise.resolve(mails.filter((mail) => mail.subject.toLowerCase().includes(filterBy.queryStr)))
             })
     }
 
