@@ -21,6 +21,7 @@ export function App() {
                 <Route path="/mail/:filterBy" element={<MailIndex />} />
             </Routes>
             <UserMsg />
+            <div onClick={() => document.body.classList.remove('menu-open')} className="overlay menu-overlay full"></div>
         </section>
     </Router>
 }
