@@ -6,6 +6,7 @@ import { NoteList } from "../cmps/note-list.jsx";
 import { NoteAdd } from "../cmps/note-add.jsx";
 import { NoteModal } from "../cmps/note-modal.jsx";
 import { SearchBar } from "../../../cmps/search-bar.jsx";
+import { showErrorMsg, showSuccessMsg } from "../../../services/event-bus.service.js";
 
 export function NoteIndex() {
 
@@ -24,19 +25,36 @@ export function NoteIndex() {
 
     function onAddNote(note) {
         noteService.save(note).then(note => {
+            showSuccessMsg('Note added')
             setNotes(prevNotes => [note, ...prevNotes])
+        })
+        .catch(err => {
+            console.log('Had issues adding note', err)
+            showErrorMsg('Failed to add note')
         })
     }
 
     function onRemoveNote(noteId) {
         noteService.remove(noteId).then(() => {
             const updatedNotes = notes.filter(note => note.id !== noteId)
+            showSuccessMsg('Note deleted')
             setNotes(updatedNotes)
+        })
+        .catch(err => {
+            console.log('Had issues removing note', err)
+            showErrorMsg('Failed to delete note')
         })
     }
 
     function onSaveNote(note) {
-        noteService.save(note).then(() => loadNotes())
+        noteService.save(note).then(() => {
+            showSuccessMsg('Note saved')
+            loadNotes()
+        })
+        .catch(err => {
+            console.log('Had issues saving note', err)
+            showErrorMsg('Failed to save note')
+        })
     }
 
     function onOpenModal(note) {
@@ -82,7 +100,12 @@ export function NoteIndex() {
     function onPinNote(note) {
         note.isPinned = !note.isPinned
         noteService.save(note).then(() => {
+            showSuccessMsg('Note pinned')
             setNotes(prevNotes => [...prevNotes])
+        })
+        .catch(err => {
+            console.log('Had issues pinning note', err)
+            showErrorMsg('Failed to pin note')
         })
     }
 

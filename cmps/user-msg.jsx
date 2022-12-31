@@ -25,8 +25,8 @@ export function UserMsg() {
 
   if (!msg) return <span></span>
   return (
-    <section className={`user-msg ${msg.type}`}>
-      <button onClick={closeMsg}>x</button>
+    <section className={`animate__animated animate__fadeInDown animate__faster user-msg ${msg.type}`}>
+      <button className="fa-solid circle-xmark" onClick={closeMsg}></button>
       {msg.txt}
     </section>
   )

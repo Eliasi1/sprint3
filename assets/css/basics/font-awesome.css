@@ -58,6 +58,10 @@
     content: "\f658";
 }
 
+.fa-solid.circle-xmark::before {
+    content: "\f057";
+}
+
 /* Font Awesome - regular */
 .fa-regular::before {
     font-family: fa-regular;

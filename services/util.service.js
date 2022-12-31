@@ -87,7 +87,7 @@ function getFullDate(miliseconds) {
 }
 
 function extractYoutubeVidId(url) {
-    if(!url) return null
+    if (!url) return null
     const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     const match = url.match(regExp);
     if (match && match[2].length == 11) {
@@ -95,4 +95,19 @@ function extractYoutubeVidId(url) {
     } else {
         return null
     }
+}
+
+function animateCSS(el, animation) {
+    const prefix = 'animate__'
+    return new Promise((resolve, reject) => {
+        const animationName = `${prefix}${animation}`
+        el.classList.add(`${prefix}animated`, animationName)
+        function handleAnimationEnd(event) {
+            event.stopPropagation()
+            el.classList.remove(`${prefix}animated`, animationName)
+            resolve('Animation ended')
+        }
+
+        el.addEventListener('animationend', handleAnimationEnd, { once: true })
+    })
 }

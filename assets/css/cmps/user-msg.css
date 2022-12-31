@@ -1,21 +1,41 @@
-.user-msg {
+section.app section.user-msg {
     background-color: lightgray;
     padding: 1em;
-    position: absolute;
+    position: fixed;
     top: 1em;
+    left: 1em;
     right: 1em;
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1em;
 }
 
-.user-msg.success {
+section.app section.user-msg.success {
     background-color: lightgreen;
 }
 
-.user-msg.error {
+section.app section.user-msg.error {
     background-color: lightpink;
 }
 
 
-.user-msg button{
-    float: right;
-    margin: 1em;
+section.app section.user-msg button {
+    font-size: 1.4rem;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(85, 85, 85);
+    transition: color 0.15s ease-in-out;
+}
+
+section.app section.user-msg button:hover {
+    color: black;
 }
