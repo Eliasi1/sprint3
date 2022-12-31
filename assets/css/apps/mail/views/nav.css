@@ -64,27 +64,66 @@
 
 .mail-container {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
 }
 
-.mail-container .app-nav a.active{
+@media screen and (min-width:644px) {
+  .mail-container{
+    grid-template-columns: 1fr 3fr;
+
+  }
+}
+
+.mail-container .nav-btn a.active{
   background: #ff003b;
 }
 
 /* mail-nav-btn */
+.mail-menu-btn{
+  background-color: whitesmoke;
+  width: 47px;
+  height: 47px;
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  border-radius: 10px;
+  border: 2px solid #333;
+  display: block;
+}
+@media screen and (min-width:644px) {
+  .search-space .mail-menu-btn{
+    display: none;
+  }
+}
+
 .app-btn {
-    position: fixed;
-    top: 30%;
-    left: 5%;
     grid-column: 1;
     grid-row:1;
   }
-  
 
-  .app-nav a{
+  
+.nav-btn {
+  background-color: whitesmoke;
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  width: fit-content;
+  height: fit-content;
+  position: fixed;
+  left: -100%;
+  transition: 0.5s;
+}
+
+@media screen and (min-width:644px) {
+  .nav-btn{
+position: static;  }
+}
+
+.nav-btn.mail-menu-open {
+  left: 5%;
+
+}
+
+  .nav-btn a{
     display: block;
+    border-radius: 10px;
     width: 200px;
     height: 40px;
     line-height: 40px;
@@ -100,12 +139,12 @@
     margin:10px;
   }
   
-  .app-nav a span{
+  .nav-btn a span{
     position: relative;
     z-index: 2;
   }
   
-  .app-nav a:after{
+  .nav-btn a:after{
     position: absolute;
     content: "";
     top: 0;
@@ -116,11 +155,11 @@
     transition: all .35s;
   }
   
-  .app-nav a:hover{
+  .nav-btn a:hover{
     color: #fff;
   }
   
-  .app-nav a:hover:after{
+  .nav-btn a:hover:after{
     width: 100%;
   }
 

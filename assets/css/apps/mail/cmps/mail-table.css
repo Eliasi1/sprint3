@@ -38,3 +38,18 @@
     border: none;
     width: 30px;
 }
+
+.mail-body {
+    background-color: rgb(239, 237, 237);
+    height: 0;
+    transition: 0.5s;
+    border: 1px solid grey;
+}
+
+.mail-body p {
+    padding: 0.5em;
+}
+
+.mail-body.open{
+    height: 20vh;
+}

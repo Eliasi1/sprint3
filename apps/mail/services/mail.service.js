@@ -117,8 +117,9 @@ function saveMail(mail) {
     }
 }
 
-function removeMail(mailId, mailBox = 'mails') {
-    switch (mailBox) {
+function removeMail(mailId, boxType) {
+    console.log(boxType)
+    switch (boxType) {
         case 'mails':
             return storageService.remove(MAILS_STORAGE_KEY, mailId)
         case 'draft':
@@ -137,7 +138,7 @@ function toggleStarMail(id) {
 }
 
 function getEmptyMail() {
-    return { id: null, subject: '', to: '', body: '', sentAt: '', isRead: false, isStarred: false, sentAt: Date.now() }
+    return { id: null, subject: '<no subject>', to: '<no recipient>', body: '<no body>', sentAt: '', isRead: false, isStarred: false, sentAt: Date.now() }
 }
 
 

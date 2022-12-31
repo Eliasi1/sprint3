@@ -16,33 +16,26 @@ export function MailIndex() {
 
     const [mails, setMails] = useState([])
     const [onModal, setOnModal] = useState(false)
+    const [isOpenMailMenu, setOpenMailMenu] = useState(false)
     const params = useParams()
     const [queryStr, setQueryStr] = useState('')
-    const [draftMail, setDraft] = useState({})
-    const debounce = useRef(null)
+    const [draftMail, setDraft] = useState(mailService.getEmptyMail())
 
 
 
     useEffect(() => {
-        mailService.getMails({boxType: params.filterBy, queryStr}).then((mails) => setMails(mails))
+        mailService.getMails({ boxType: params.filterBy, queryStr }).then((mails) => setMails(mails))
     }, [params.filterBy, queryStr])
 
-    useEffect(() => {
-        // console.log(draftMail.then((draft)=> console.log(draft)))
-        if (debounce.current || !draftMail.id) return
-        console.log('saving draft email..')
-        debounce.current = true
-        mailService.saveDraft(draftMail).then(draftMail => { console.log("saved"); console.log(draftMail) })
-        setTimeout(() => debounce.current = false, 5000)
-    }, [draftMail])
+
 
     function onCompose() {
         setOnModal(true)
-        const newDraft = mailService.createDraft().then((newDraft) => { console.log("new draft: "); console.log(newDraft); setDraft(newDraft); console.log("saving to drafts..") })
-        // setDraft(mailService.createDraft())
+        const newDraft = mailService.createDraft().then((newDraft) => {setDraft(newDraft) })
     }
 
-    function onSearch(searchText){
+
+    function onSearch(searchText) {
         setQueryStr(searchText)
     }
 
@@ -61,13 +54,6 @@ export function MailIndex() {
         })
     }
 
-    function onHandleChange({ target }) {
-        const { value, name: field } = target
-        setDraft((previousMail) => {
-            return { ...previousMail, [field]: value }
-        })
-    }
-
     function onSend(draftValues) {
         const { to, subject, body } = draftValues
         const sentAt = Date.now()
@@ -82,21 +68,31 @@ export function MailIndex() {
         setOnModal(false)
     }
 
+    function onToggleMenu() {
+        setOpenMailMenu((previousState) => !previousState)
+    }
+
+    function closeMenu() {
+        //    classList.remove('mail-menu-open')
+    }
 
     return (
         <Fragment>
             <section className="mail-main">
-            <SearchBar onSearch={onSearch}/>
+                <div className="search-space flex space-around">
+                    <button onClick={onToggleMenu} className="fa-solid bars mail-menu-btn"></button>
+                    <SearchBar onSearch={onSearch} />
+                </div>
                 <div className="mail-container">
-                    <div className="nav-btn app-nav flex column">
+                    <div className={(isOpenMailMenu)? "nav-btn flex column mail-menu-open":"nav-btn flex column"}>
                         <button onClick={onCompose} className="glow-on-hover" type="button">Compose</button>
                         <NavLink to="/mail/inbox"><span>Inbox</span></NavLink>
                         <NavLink to="/mail/sent"><span>Sent</span></NavLink>
                         <NavLink to="/mail/starred"><span>Starred</span></NavLink>
                         <NavLink to="/mail/draft"><span>Draft</span></NavLink>
                     </div>
-                    <MailList onStarMail={onStarMail} onRemoveMail={onRemoveMail} mails={mails} boxType={params.filterBy === 'draft' ? 'draft' : 'mail'} />
-                    <ComposeModal onHandleChange={onHandleChange} draftMail={draftMail} onModal={onModal} onSend={onSend} onCloseModal={onCloseModal} />
+                    <MailList onStarMail={onStarMail} onRemoveMail={onRemoveMail} mails={mails} onCompose={onCompose} boxType={params.filterBy === 'draft' ? 'draft' : 'mails'} />
+                    <ComposeModal setDraft={setDraft} draftMail={draftMail} onModal={onModal} onSend={onSend} onCloseModal={onCloseModal} setOnModal={setOnModal} />
                     <div>
 
                     </div>
