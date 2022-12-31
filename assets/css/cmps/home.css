@@ -12,10 +12,11 @@
     border: 1px solid var(--header-bg-color);
     padding: 1em;
     border-radius: 2em;
+    margin-block-end: 1em;
 }
 
 .home .image-container img {
-    width: 70%;
+    width: 100%;
     max-width: 500px;
     aspect-ratio: 1/1;
     object-fit: contain;
@@ -32,6 +33,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    width: 100%;
 }
 
 .home .image-container .img:hover img {
@@ -41,5 +43,6 @@
 @media screen and (min-width: 568px) {
     .home .image-container {
         grid-template-columns: 1fr 1fr;
+        gap: 8em;
     }
 }
