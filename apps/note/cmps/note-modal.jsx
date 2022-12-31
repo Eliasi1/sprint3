@@ -2,7 +2,7 @@ const { useState, useEffect } = React
 
 import { utilService } from "../../../services/util.service.js"
 
-export function NoteModal({ note, onCloseModal, onSaveNote }) {
+export function NoteModal({ note, onCloseModal, onSaveNote, onRemoveNote }) {
     const [currNote, setCurrNote] = useState(null)
 
     useEffect(() => {
@@ -40,8 +40,9 @@ export function NoteModal({ note, onCloseModal, onSaveNote }) {
         {currNote.info.url && <input onChange={handleInput} value={currNote.info.url} name="url" type="text" placeholder="Link..." />}
         {currNote.info.todos && currNote.info.todos[0] && <input onChange={handleInput} value={currNote.info.todos.map(todo => todo.txt)} name="todos" type="text" placeholder="Todos..." />}
         <div>
+            <button style={{marginRight: 'auto'}} title="Delete note" onClick={() => { onCloseModal(); onRemoveNote(note.id) }} className="fa-solid trash-can"></button>
             <button onClick={handleSavingNote}>Save</button>
             <button onClick={onCloseModal}>Close</button>
         </div>
-    </div>
+    </div >
 }

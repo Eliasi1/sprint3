@@ -124,7 +124,7 @@ export function NoteIndex() {
         <SearchBar onSearch={onSearch} />
         <NoteAdd onAddNote={onAddNote} />
         <NoteList onToggleTodo={onToggleTodo} onPinNote={onPinNote} onChangeColor={onChangeColor} onOpenModal={onOpenModal} onRemoveNote={onRemoveNote} notes={notes} />
-        {isModalOpen && <NoteModal onSaveNote={onSaveNote} onCloseModal={onCloseModal} note={currNoteRef.current} />}
+        {isModalOpen && <NoteModal onRemoveNote={onRemoveNote} onSaveNote={onSaveNote} onCloseModal={onCloseModal} note={currNoteRef.current} />}
         {isModalOpen && <div onClick={onCloseModal} className="overlay"></div>}
     </section>
 }
