@@ -64,7 +64,7 @@ export function NoteAdd({ onAddNote }) {
         if (note.type === 'note-txt') {
             return (
                 <section className="note-add-section">
-                    <input onChange={handleInput} value={note.info.title} name="title" type="text" placeholder="Title" />
+                    <input autoFocus onChange={handleInput} value={note.info.title} name="title" type="text" placeholder="Title" />
                     <input onChange={handleInput} value={note.info.txt} name="txt" type="text" placeholder="Take a note..." />
                     <div>
                         <button onClick={handleAddingNote}>Save</button>
@@ -75,7 +75,7 @@ export function NoteAdd({ onAddNote }) {
         } else if (note.type === 'note-img' || note.type === 'note-video') {
             return (
                 <section className="note-add-section">
-                    <input onChange={handleInput} value={note.info.title} name="title" type="text" placeholder="Title" />
+                    <input autoFocus onChange={handleInput} value={note.info.title} name="title" type="text" placeholder="Title" />
                     <input onChange={handleInput} value={note.info.url} name="url" type="text" placeholder="Url..." />
                     <div>
                         <button onClick={handleAddingNote}>Save</button>
@@ -86,7 +86,7 @@ export function NoteAdd({ onAddNote }) {
         } else if (note.type === 'note-todos') {
             return (
                 <section className="note-add-section">
-                    <input onChange={handleInput} value={note.info.title} name="title" type="text" placeholder="Title" />
+                    <input autoFocus onChange={handleInput} value={note.info.title} name="title" type="text" placeholder="Title" />
                     <input onChange={handleInput} value={note.info.todos.map(todo => todo.txt)} name="todos" type="text" placeholder="Todos (ex. Clean, Eat)..." />
                     <div>
                         <button onClick={handleAddingNote}>Save</button>

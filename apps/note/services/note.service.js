@@ -16,7 +16,7 @@ _createDemoNotes()
 function getNotes(queryStr) {
     return storageService.query(STORAGE_KEY).then(notes => {
         const regex = new RegExp(queryStr, 'i')
-        return notes.filter(note => regex.test(note.info.title) || regex.test(note.info.txt))
+        return notes.filter(note => regex.test(note.info.title) || regex.test(note.info.txt) || (note.info.todos && regex.test(note.info.todos.map(todo => todo.txt).join(''))))
     })
 }
 

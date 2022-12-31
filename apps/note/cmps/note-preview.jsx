@@ -19,7 +19,7 @@ export function NotePreview({ note, onRemoveNote, onOpenModal, onChangeColor, on
     function onNoteToMail() {
         const subject = note.info.title
         const body = note.info.txt || note.info.url || note.info.todos.map(todo => todo.txt)
-        navigate(`/mail/compose?subject=${subject}&body=${body}`)
+        navigate(`/mail/inbox/compose?subject=${subject}&body=${body}`)
     }
 
     return <article onClick={handleModalOpening} style={note.style ? note.style : {}} className="note-card">

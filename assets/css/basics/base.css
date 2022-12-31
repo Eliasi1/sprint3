@@ -46,6 +46,7 @@ img {
 
 button, input[type="color"] {
     cursor: pointer;
+    color: black;
 }
 
 iframe {
