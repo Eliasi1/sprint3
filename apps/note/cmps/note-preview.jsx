@@ -25,10 +25,10 @@ export function NotePreview({ note, onRemoveNote, onOpenModal, onChangeColor, on
     return <article onClick={handleModalOpening} style={note.style ? note.style : {}} className="note-card">
         <DynamicNote onToggleTodo={onToggleTodo} note={note} />
         <section className="note-buttons">
-            <button onClick={() => onPinNote(note)} className={"fa-solid thumbtack pin-button " + (note.isPinned ? 'pinned' : '')}></button>
-            <button onClick={onNoteToMail} className="fa-solid envelope"></button>
-            <button className="fa-solid palette color-button"><input value={note.style ? note.style.backgroundColor : '#ffffff'} onChange={handleColorChange} type="color" /></button>
-            <button onClick={() => onRemoveNote(note.id)} className="fa-solid trash-can"></button>
+            <button title="Pin note" onClick={() => onPinNote(note)} className={"fa-solid thumbtack pin-button " + (note.isPinned ? 'pinned' : '')}></button>
+            <button title="Compose mail" onClick={onNoteToMail} className="fa-solid envelope"></button>
+            <button title="Change note background color" className="fa-solid palette color-button"><input value={note.style ? note.style.backgroundColor : '#ffffff'} onChange={handleColorChange} type="color" /></button>
+            <button title="Delete note" onClick={() => onRemoveNote(note.id)} className="fa-solid trash-can"></button>
         </section>
     </article>
 }

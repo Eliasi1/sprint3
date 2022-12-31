@@ -102,9 +102,9 @@ export function NoteAdd({ onAddNote }) {
             <span className="note-inputs">
                 <input onClick={onOpenForm} name="txt" type="text" placeholder="Take a note..." />
                 <span className="note-add-buttons">
-                    <button onClick={() => setNoteType('note-img')} className="fa-solid image"></button>
-                    <button onClick={() => setNoteType('note-video')} className="fa-brands youtube"></button>
-                    <button onClick={() => setNoteType('note-todos')} className="fa-solid list"></button>
+                    <button title="Add an image note" onClick={() => setNoteType('note-img')} className="fa-solid image"></button>
+                    <button title="Add a youtube video note" onClick={() => setNoteType('note-video')} className="fa-brands youtube"></button>
+                    <button title="Add a list note" onClick={() => setNoteType('note-todos')} className="fa-solid list"></button>
                 </span>
             </span>
         }
