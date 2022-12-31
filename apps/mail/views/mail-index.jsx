@@ -1,8 +1,7 @@
 const { Link, NavLink } = ReactRouterDOM
 const { useState, useEffect, useRef } = React
-const { useParams } = ReactRouterDOM
+const { useParams, useLocation } = ReactRouterDOM
 const { Fragment } = React
-
 
 
 import { MailList } from "../cmps/mail-list.jsx"
@@ -12,21 +11,26 @@ import { ComposeModal } from "../cmps/compose-modal.jsx"
 import { SearchBar } from "../../../cmps/search-bar.jsx"
 
 
+
+
+
+
 export function MailIndex() {
 
     const [mails, setMails] = useState([])
-    const [onModal, setOnModal] = useState(false)
+    let location = useLocation()
     const [isOpenMailMenu, setOpenMailMenu] = useState(false)
     const params = useParams()
     const [queryStr, setQueryStr] = useState('')
     const [draftMail, setDraft] = useState(mailService.getEmptyMail())
-
+    const [onModal, setOnModal] = useState(false)
 
 
     useEffect(() => {
         mailService.getMails({ boxType: params.filterBy, queryStr }).then((mails) => setMails(mails))
+        console.log(location)
+    
     }, [params.filterBy, queryStr])
-
 
 
     function onCompose() {

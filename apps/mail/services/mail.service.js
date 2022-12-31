@@ -34,8 +34,12 @@ function saveDraft(mail) {
     }
 }
 
-function createDraft() {
-    return saveDraft(getEmptyMail())
+function createDraft(dataTemplate=null) {
+    if (!dataTemplate) return saveDraft(getEmptyMail())
+    if (dataTemplate.to) {const to = dataTemplate.to} else {const to = '<no recipient>'}
+    if (dataTemplate.subject) {const subject = dataTemplate.subject} else {const subject = '<no subject>'}
+    if (dataTemplate.body) {const body = dataTemplate.body} else {const body = '<no body>'}
+    return saveDraft ({...getEmptyMail,to,subject,body})
 
 }
 
