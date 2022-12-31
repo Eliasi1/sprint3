@@ -76,11 +76,11 @@ section.notes-container .note-card:hover {
 }
 
 .note-buttons button.pin-button.pinned {
-    color: rgb(204, 82, 73);
+    color: #ef233c;
 }
 
 .note-buttons button.pin-button.pinned:hover {
-    color: rgb(128, 49, 43);
+    color: #d90429;
 }
 
 .note-buttons button:hover {

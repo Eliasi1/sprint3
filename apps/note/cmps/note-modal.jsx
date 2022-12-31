@@ -6,10 +6,8 @@ export function NoteModal({ note, onCloseModal, onSaveNote }) {
     const [currNote, setCurrNote] = useState(null)
 
     useEffect(() => {
-        setCurrNote({...note})
+        setCurrNote({ ...note })
     }, [])
-
-    console.log(currNote)
 
     function handleInput({ target }) {
         let { value, name: field } = target

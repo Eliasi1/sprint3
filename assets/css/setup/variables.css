@@ -1,4 +1,6 @@
 :root {
-    --main-bg-color: lightblue;
+    --header-bg-color: #2b2d42;
+    --bg-color: white;
     --notes-border-clr: #e0e0e0;
+    --hover-color: #d90429;
 }

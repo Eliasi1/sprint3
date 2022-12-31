@@ -62,6 +62,10 @@
     content: "\f057";
 }
 
+.fa-solid.bars::before {
+    content: "\f0c9";
+}
+
 /* Font Awesome - regular */
 .fa-regular::before {
     font-family: fa-regular;
@@ -70,4 +74,3 @@
 .fa-regular.star::before {
     content: "\f005";
 }
-
