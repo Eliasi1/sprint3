@@ -90,6 +90,13 @@ body.menu-open .main-nav a {
     transition: color 0.15s ease-in-out;
 }
 
+.app-header .menu-btn::before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 body.menu-open .app-header .menu-btn::before {
     content: "\f00d";
 }

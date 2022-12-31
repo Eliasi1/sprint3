@@ -11,8 +11,6 @@ import { BookIndex } from "./apps/book/views/book-index.jsx"
 import { BookDetails } from "./apps/book/views/book-details.jsx"
 import { BookEdit } from "./apps/book/views/book-edit.jsx"
 
-
-
 export function App() {
     return <Router>
         <section className="app main-layout">
