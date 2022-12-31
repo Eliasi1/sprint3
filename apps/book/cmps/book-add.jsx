@@ -38,7 +38,7 @@ export function BookAdd() {
     return <form onSubmit={onSearchBook}>
         <input onChange={handleInput} name="title" value={bookName} type="text" placeholder="Book name..." />
         {googleBooks[0] && <ul className="clean-list book-add">
-            {googleBooks.map(book => <li className="flex justify-between" key={book.id}><span>{book.title}</span><span onClick={() => { onAddGoogleBook(book) }} className="book-add-btn">+</span></li>)}
+            {googleBooks.map(book => <li className="flex space-between" key={book.id}><span className="book-add-name">{book.title}</span><span onClick={() => { onAddGoogleBook(book) }} className="book-add-btn flex align-center justify-center">+</span></li>)}
         </ul>}
         <button>Search</button>
     </form>
